@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
-import { messages } from "./chatMessagesReducer";
+import { combineReducers } from 'redux';
+import { messages } from './chatMessagesReducer';
 
 export const chat = combineReducers({
-  messages,
+  messages
 });
