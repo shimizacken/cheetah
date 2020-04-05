@@ -86,27 +86,27 @@ describe('chatMessagesReducer test suite', () => {
     });
   });
 
-  describe.only('delete message test suite', () => {
+  describe('delete message test suite', () => {
     it('should delete message by id', () => {
-        const messageId = '1a2b3c4d';
-        const state = {
-          '1a2s3d4f5g': {
-            id: '1a2s3d4f5g',
-            text: 'hello all!',
-            date: 123,
-            edited: false,
-            deleted: false
-          },
-          [messageId]: {
-            id: messageId,
-            text: 'Hi!',
-            date: 456,
-            edited: false,
-            deleted: false
-          }
-        };
+      const messageId = '1a2b3c4d';
+      const state = {
+        '1a2s3d4f5g': {
+          id: '1a2s3d4f5g',
+          text: 'hello all!',
+          date: 123,
+          edited: false,
+          deleted: false
+        },
+        [messageId]: {
+          id: messageId,
+          text: 'Hi!',
+          date: 456,
+          edited: false,
+          deleted: false
+        }
+      };
       
-        expect(messages(state, deleteMessage(messageId))).toMatchSnapshot();
+      expect(messages(state, deleteMessage(messageId))).toMatchSnapshot();
     });
   });
 });
