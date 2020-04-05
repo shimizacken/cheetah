@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { initChatWebSocket } from '../bll/network/ws';
-import { publishMessage } from '../state/chatMessagesActions';
+import { initChatWebSocket } from '../bll/network/messagesLoader';
 
 export const useFetchChatMessages = () => {
   const dispatch = useDispatch();

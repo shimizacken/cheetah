@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './App.module.scss';
-import { initChatWebSocket, closeChatWebSocket } from './features/chat/bll/network/ws';
+import { initChatWebSocket, closeChatWebSocket } from './features/chat/bll/network/messagesLoader';
 import { initChatUsers } from './features/authentication/users/bll/network/usersLoader';
 import { ChatContainer } from './features/chat/components/ChatContainer';
 import { SignInContainer } from './features/authentication';
