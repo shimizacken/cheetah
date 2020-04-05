@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
 import { initChatWebSocket } from '../bll/network/messagesLoader';
@@ -9,7 +9,8 @@ import { publishMessage } from '../state/chatMessagesActions';
 
 export const ChatContainer = () => {
   const dispatch = useDispatch();
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState('');
+  const currentUserId = useSelector((state) => state?.users?.currentUser);
 
   const onChange = (e) => {
     setMessage(e.target.value);
@@ -20,7 +21,7 @@ export const ChatContainer = () => {
     const m = {
       id: uuidv4(),
       text: message,
-      userRef: '1',
+      userRef: currentUserId,
       date: Date.now,
       edited: false,
       deleted: false
@@ -38,10 +39,10 @@ export const ChatContainer = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <div style={{ border: '1px solid red' }}>
+      <div>
         <ChatMessages />
       </div>
-      <TextInput type="submit" onChange={onChange} value={message || ''} />
+      <TextInput type="submit" onChange={onChange} value={message} />
     </form>
   );
 };
