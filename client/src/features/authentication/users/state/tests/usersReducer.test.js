@@ -41,7 +41,7 @@ describe('usersReducer test suite', () => {
     });
   });
 
-  describe.only('set user active test suite', () => {
+  describe('set user active test suite', () => {
     it('should activate user', () => {
       const userId = '1';
       const state = {
