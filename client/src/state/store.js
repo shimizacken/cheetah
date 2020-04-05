@@ -1,19 +1,9 @@
 import { createStore, compose } from 'redux';
-
-const initialState = {
-  chat: {
-    users: [],
-    messages: []
-  }
-};
-
-const reducer = (state = initialState) => {
-  return state;
-};
+import { reducers } from './reducers';
 
 const composeEnhancers =
   process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;
 
-const store = createStore(reducer, initialState, composeEnhancers());
+const store = createStore(reducers, {}, composeEnhancers());
 
 export { store };
