@@ -1,9 +1,13 @@
 import produce from 'immer';
-import { PUBLISH_MESSAGE, EDIT_MESSAGE, DELETE_MESSAGE } from './chatMessagesConstants';
+import { PUBLISH_MESSAGE, EDIT_MESSAGE, DELETE_MESSAGE, SET_MESSAGES } from './chatMessagesConstants';
 
 const messagesInitialState = {};
 
 export const messages = (state = messagesInitialState, action) => {
+  if (action.type === SET_MESSAGES) {
+    return action.messages;
+  }
+
   if (action.type === PUBLISH_MESSAGE) {
     return {
       ...state,

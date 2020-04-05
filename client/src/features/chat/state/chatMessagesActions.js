@@ -1,8 +1,13 @@
-import { PUBLISH_MESSAGE, EDIT_MESSAGE, DELETE_MESSAGE } from './chatMessagesConstants';
+import { PUBLISH_MESSAGE, EDIT_MESSAGE, DELETE_MESSAGE, SET_MESSAGES } from './chatMessagesConstants';
 
 export const publishMessage = (message) => ({
   type: PUBLISH_MESSAGE,
   message
+});
+
+export const setMessages = (messages) => ({
+  type: SET_MESSAGES,
+  messages
 });
 
 export const editMessage = (message) => ({
