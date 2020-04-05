@@ -5,10 +5,11 @@ import styles from './ChatMessage.module.scss';
 export const ChatMessage = React.memo(({ userName, text, active, date }) => (
   <div className={styles['message-wrapper']}>
     <div className={styles['user-name']}>
-      <span>{userName}</span>
-      <span>{date}</span>
+      <span>
+        {active && <Dot />} {userName}
+      </span>
+      <span className={styles['date']}>{date}</span>
     </div>
     <div className={styles['content']}>{text}</div>
-    {active && <Dot />}
   </div>
 ));

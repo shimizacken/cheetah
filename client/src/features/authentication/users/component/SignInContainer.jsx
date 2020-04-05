@@ -29,8 +29,10 @@ export const SignInContainer = React.memo(({ userRef, text }) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <TextInput type="submit" onChange={onChange} value={userName} placeholder="Type name and hit the enter!" />
-    </form>
+    <div style={{ width: '100%', textAlign: 'center' }}>
+      <form onSubmit={onSubmit}>
+        <TextInput type="submit" onChange={onChange} value={userName} placeholder="Type name and hit the enter!" />
+      </form>
+    </div>
   );
 });
