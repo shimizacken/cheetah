@@ -4,16 +4,16 @@ import { useSelector } from 'react-redux';
 import { ChatMessage } from './ChatMessage';
 
 export const ChatMessages = () => {
+  const users = useSelector((state) => state?.users);
   const messages = useSelector((state) => state?.chat?.messages);
 
-  if (isEmpty(messages)) {
+  if (isEmpty(users) || isEmpty(messages)) {
     return null;
   }
-
   return (
     <div>
       {Object.values(messages).map((message) => {
-        return <ChatMessage key={message.id} text={message.text} userName={message.userRef} active={message.active} />;
+        return <ChatMessage key={message.id} text={message.text} userRef={message.userRef} />;
       })}
     </div>
   );

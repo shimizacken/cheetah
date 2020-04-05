@@ -7,21 +7,17 @@ Object {
     "displayName": "jimi",
     "id": "1",
   },
-  "2": Object {
-    "active": false,
-    "displayName": "leah",
-    "id": "2",
-  },
+  "active": false,
+  "displayName": "leah",
+  "id": "2",
 }
 `;
 
 exports[`usersReducer test suite add user test suite should add first user 1`] = `
 Object {
-  "1": Object {
-    "active": false,
-    "displayName": "jimi zax",
-    "id": "1",
-  },
+  "active": false,
+  "displayName": "jimi zax",
+  "id": "1",
 }
 `;
 

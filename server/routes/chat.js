@@ -8,7 +8,7 @@ const wss = new WebSocket.Server({ port: 9500 });
 const welcomeMessage = {
   id: uuidv4(),
   text: '🤖 Welcome to the chat!',
-  userRef: '3',
+  userRef: '99f9eac4-0de4-4733-868f-b18610adc6b0',
   date: 789,
   edited: false,
   deleted: false

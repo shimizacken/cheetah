@@ -7,7 +7,7 @@ export const users = (state = usersInitialState, action) => {
   if (action.type === ADD_USER) {
     return {
       ...state,
-      [action.user.id]: action.user
+      ...action.user
     };
   }
 
