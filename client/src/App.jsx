@@ -8,6 +8,11 @@ import { selectShouldDisplayChat } from './features/authentication/users/state/u
 import { MainLayout } from './features/layout/components/MainLayout';
 import { MainHeader } from './features/layout/components/MainHeader';
 
+export const HeaderDisplayMode = {
+  DEFAULT: 'default',
+  COLLAPSE: 'collapse'
+};
+
 export const App = () => {
   const displayChat = useSelector(selectShouldDisplayChat);
 
@@ -22,7 +27,7 @@ export const App = () => {
 
   return (
     <MainLayout>
-      <MainHeader mode={displayChat} />
+      <MainHeader mode={displayChat ? HeaderDisplayMode.COLLAPSE : HeaderDisplayMode.DEFAULT} />
       {!displayChat && <SignInContainer />}
       <div>{displayChat && <ChatContainer />}</div>
       <footer></footer>
