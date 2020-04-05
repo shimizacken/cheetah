@@ -1,12 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`chatMessagesReducer test suite defaults should return default state 1`] = `Array []`;
+exports[`chatMessagesReducer test suite defaults should return default state 1`] = `Object {}`;
 
-exports[`chatMessagesReducer test suite publish message test suite should add new message 1`] = `
-Array [
-  Object {
+exports[`chatMessagesReducer test suite delete message test suite should delete message by id 1`] = `
+Object {
+  "1a2b3c4d": Object {
+    "date": 456,
+    "deleted": true,
+    "edited": false,
+    "id": "1a2b3c4d",
+    "text": "Hi!",
+  },
+  "1a2s3d4f5g": Object {
+    "date": 123,
+    "deleted": false,
+    "edited": false,
     "id": "1a2s3d4f5g",
     "text": "hello all!",
   },
-]
+}
+`;
+
+exports[`chatMessagesReducer test suite edit message test suite should edit message 1`] = `
+Object {
+  "1a2s3d4f5g": Object {
+    "date": 123,
+    "deleted": false,
+    "edited": false,
+    "id": "1a2s3d4f5g",
+    "text": "hello all!",
+  },
+  "4q5w6e64r": Object {
+    "date": 987,
+    "deleted": false,
+    "edited": true,
+    "id": "4q5w6e64r",
+    "text": "Hi to all, I edited this message!",
+  },
+  "messageId": Object {
+    "date": 456,
+    "deleted": false,
+    "edited": false,
+    "id": "4q5w6e64r",
+    "text": "Hi!",
+  },
+}
+`;
+
+exports[`chatMessagesReducer test suite publish message test suite should add multiple messages 1`] = `
+Object {
+  "1a2s3d4f5g": Object {
+    "date": 123,
+    "deleted": false,
+    "edited": false,
+    "id": "1a2s3d4f5g",
+    "text": "hello all!",
+  },
+  "1z32c15c64d": Object {
+    "date": 789,
+    "deleted": false,
+    "edited": false,
+    "id": "1z32c15c64d",
+    "text": "Hi there!",
+  },
+  "4q5w6e64r": Object {
+    "date": 456,
+    "deleted": false,
+    "edited": false,
+    "id": "4q5w6e64r",
+    "text": "Hi!",
+  },
+}
+`;
+
+exports[`chatMessagesReducer test suite publish message test suite should add single message 1`] = `
+Object {
+  "1a2s3d4f5g": Object {
+    "date": 1586083281242,
+    "deleted": false,
+    "edited": false,
+    "id": "1a2s3d4f5g",
+    "text": "hello all!",
+  },
+}
 `;
