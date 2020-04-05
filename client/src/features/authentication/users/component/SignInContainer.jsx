@@ -20,7 +20,7 @@ export const SignInContainer = React.memo(({ userRef, text }) => {
 
     dispatch(
       postUser({
-        id: uuidv4(),
+        id: userId,
         userName,
         date: Date.now,
         active: true

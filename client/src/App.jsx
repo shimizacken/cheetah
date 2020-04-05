@@ -4,8 +4,12 @@ import { initChatWebSocket, closeChatWebSocket } from './features/chat/bll/netwo
 import { initChatUsers } from './features/authentication/users/bll/network/usersLoader';
 import { ChatContainer } from './features/chat/components/ChatContainer';
 import { SignInContainer } from './features/authentication';
+import { useSelector } from 'react-redux';
+import { selectShouldDisplayChat } from './features/authentication/users/state/usersSelectors';
 
 export const App = () => {
+  const displayChat = useSelector(selectShouldDisplayChat);
+
   useEffect(() => {
     initChatWebSocket();
     initChatUsers();
@@ -20,9 +24,7 @@ export const App = () => {
       <div>
         <h1>🐆 Cheetah</h1>
         <SignInContainer />
-        <div>
-          <ChatContainer />
-        </div>
+        <div>{displayChat && <ChatContainer />}</div>
       </div>
     </div>
   );
