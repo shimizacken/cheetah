@@ -5,7 +5,7 @@ import styles from './TextInput.module.scss';
 
 export const TextInput = ({ value, onChange, disabled, placeholder, className }) => (
   <input
-    className={classNames(styles.textInput, className)}
+    className={classNames(styles['text-input'], className)}
     type="text"
     value={value}
     onChange={onChange}

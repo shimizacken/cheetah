@@ -12,24 +12,13 @@ export const initChatWebSocket = () => {
     console.log(`WebSocket error: ${error}`);
   };
 
-  connection.onmessage = (e) => {
-    console.log(e.data);
-    // store.dispatch(publishMessage(JSON.parse(e.data)));
-    store.dispatch(setMessages(JSON.parse(e.data)));
-  };
+  connection.onmessage = (e) => store.dispatch(setMessages(JSON.parse(e.data)));
 
   return () => connection;
 };
 
 export const closeChatWebSocket = () => {
   connection.close();
-};
-
-export const postMessage = (message) => {
-  //   connection.onopen = () => {
-  //     console.log('send: ' + message);
-  //     connection.send(message);
-  //   };
 };
 
 export const getWS = () => connection;

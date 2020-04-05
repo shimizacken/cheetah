@@ -3,6 +3,7 @@ import styles from './App.module.scss';
 import { initChatWebSocket, closeChatWebSocket } from './features/chat/bll/network/ws';
 import { initChatUsers } from './features/authentication/users/bll/network/usersLoader';
 import { ChatContainer } from './features/chat/components/ChatContainer';
+import { SignInContainer } from './features/authentication';
 
 export const App = () => {
   useEffect(() => {
@@ -17,7 +18,8 @@ export const App = () => {
   return (
     <div className={styles['root-wrapper']}>
       <div>
-        <div>Cheetah</div>
+        <h1>🐆 Cheetah</h1>
+        <SignInContainer />
         <div>
           <ChatContainer />
         </div>
