@@ -23,7 +23,6 @@ export const messages = (state = messagesInitialState, action) => {
 
   if (action.type === DELETE_MESSAGE) {
     const nextState = produce(state, draftState => {
-      console.log(action.messageId);
       draftState[action.messageId].deleted = true;
 
       return draftState;
