@@ -12,7 +12,10 @@ export const initChatWebSocket = () => {
     console.log(`WebSocket error: ${error}`);
   };
 
-  connection.onmessage = (e) => store.dispatch(setMessages(JSON.parse(e.data)));
+  connection.onmessage = (e) => {
+    console.log('messages', JSON.parse(e.data));
+    store.dispatch(setMessages(JSON.parse(e.data)));
+  };
 
   return () => connection;
 };

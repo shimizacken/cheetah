@@ -6,29 +6,31 @@ import { initChatWebSocket } from '../bll/network/messagesLoader';
 import { useFetchChatMessages } from '../hooks/useFetchChatMessages';
 import { ChatMessages } from './ChatMessages';
 import { publishMessage } from '../state/chatMessagesActions';
+import { selectCurrentUserId } from '../../authentication/users/state/usersSelectors';
 
 export const ChatContainer = () => {
   const dispatch = useDispatch();
-  const [message, setMessage] = useState('');
-  const currentUserId = useSelector((state) => state?.users?.currentUser);
+  const [text, setText] = useState('');
+  const currentUserId = useSelector(selectCurrentUserId);
 
   const onChange = (e) => {
-    setMessage(e.target.value);
+    setText(e.target.value);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const m = {
+    console.log('currentUserId', currentUserId);
+    const message = {
       id: uuidv4(),
-      text: message,
+      text: text,
       userRef: currentUserId,
-      date: Date.now,
+      date: Date.now(),
       edited: false,
       deleted: false
     };
 
-    dispatch(publishMessage(m));
-    setMessage('');
+    dispatch(publishMessage(message));
+    setText('');
   };
 
   useFetchChatMessages();
@@ -42,7 +44,7 @@ export const ChatContainer = () => {
       <div>
         <ChatMessages />
       </div>
-      <TextInput type="submit" onChange={onChange} value={message} />
+      <TextInput type="submit" onChange={onChange} value={text} />
     </form>
   );
 };

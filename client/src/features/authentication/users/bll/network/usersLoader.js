@@ -14,7 +14,7 @@ export const initChatUsers = () => {
   };
 
   connection.onmessage = (e) => {
-    console.log(JSON.parse(e.data));
+    // console.log(JSON.parse(e.data));
     store.dispatch(addUser(JSON.parse(e.data)));
   };
 

@@ -7,7 +7,7 @@ const wss = new WebSocket.Server({ port: 9501 });
 const cheetahBot = {
   id: '99f9eac4-0de4-4733-868f-b18610adc6b0',
   userName: 'Cheetah bot 🐆',
-  date: Date.now,
+  date: Date.now(),
   active: true
 };
 
@@ -27,7 +27,7 @@ wss.on('connection', ws => {
         if (incomingUser) {
             chatUsers[incomingUser.id] = incomingUser;
             const json = JSON.stringify(chatUsers);
-            
+
             for (let i = 0; i < clients.length; i++) {
                 clients[i].send(json);
             }

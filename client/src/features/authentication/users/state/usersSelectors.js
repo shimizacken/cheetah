@@ -4,6 +4,8 @@ export const selectUsers = (state) => state?.authentication?.users;
 
 export const selectCurrentUserId = (state) => state?.authentication?.currentUserId;
 
+export const selectUser = (userId) => createSelector(selectUsers, (users) => users?.[userId]);
+
 export const selectShouldDisplayChat = createSelector(
   selectUsers,
   selectCurrentUserId,
