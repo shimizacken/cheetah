@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dot } from '../../../components/common/dot/Dot';
 import styles from './ChatMessage.module.scss';
 
 export const ChatMessage = React.memo(({ userName, text, active, date }) => (
@@ -7,7 +8,7 @@ export const ChatMessage = React.memo(({ userName, text, active, date }) => (
       <span>{userName}</span>
       <span>{date}</span>
     </div>
-    <div>{text}</div>
-    {active && <div>active</div>}
+    <div className={styles['content']}>{text}</div>
+    {active && <Dot />}
   </div>
 ));

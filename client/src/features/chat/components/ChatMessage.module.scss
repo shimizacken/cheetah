@@ -1,5 +1,12 @@
 .message-wrapper {
   .user-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-weight: bold;
+  }
+
+  .content {
+    padding: 10px 0;
   }
 }
