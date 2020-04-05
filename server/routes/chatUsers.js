@@ -7,7 +7,7 @@ const wss = new WebSocket.Server({ port: 9501 });
 
 const cheetahBot = {
   id: '99f9eac4-0de4-4733-868f-b18610adc6b0',
-  displayName: 'Cheetah bot 🐆',
+  userName: 'Cheetah bot 🐆',
   date: Date.now,
   active: true
 };

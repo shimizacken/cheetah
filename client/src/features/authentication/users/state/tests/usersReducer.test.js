@@ -16,7 +16,7 @@ describe('usersReducer test suite', () => {
       const state = {};
       const user = {
         id: '1',
-        displayName: 'jimi zax',
+        userName: 'jimi zax',
         active: false
       };
 
@@ -27,13 +27,13 @@ describe('usersReducer test suite', () => {
       const state = {
         '1': {
           id: '1',
-          displayName: 'jimi',
+          userName: 'jimi',
           active: false
         }
       };
       const user = {
         id: '2',
-        displayName: 'leah',
+        userName: 'leah',
         active: false
       };
 
@@ -47,12 +47,12 @@ describe('usersReducer test suite', () => {
       const state = {
         [userId]: {
           id: '1',
-          displayName: 'jimi',
+          userName: 'jimi',
           active: false
         },
         '2': {
           id: '2',
-          displayName: 'leah',
+          userName: 'leah',
           active: false
         }
       };
@@ -65,12 +65,12 @@ describe('usersReducer test suite', () => {
       const state = {
         [userId]: {
           id: '1',
-          displayName: 'jimi',
+          userName: 'jimi',
           active: true
         },
         '2': {
           id: '2',
-          displayName: 'leah',
+          userName: 'leah',
           active: false
         }
       };
