@@ -13,8 +13,7 @@ export const initChatWebSocket = () => {
   };
 
   connection.onmessage = (e) => {
-    console.log(e.data);
-    // store.dispatch(publishMessage(JSON.parse(e.data)));
+    console.log('messages', JSON.parse(e.data));
     store.dispatch(setMessages(JSON.parse(e.data)));
   };
 
@@ -23,13 +22,6 @@ export const initChatWebSocket = () => {
 
 export const closeChatWebSocket = () => {
   connection.close();
-};
-
-export const postMessage = (message) => {
-  //   connection.onopen = () => {
-  //     console.log('send: ' + message);
-  //     connection.send(message);
-  //   };
 };
 
 export const getWS = () => connection;

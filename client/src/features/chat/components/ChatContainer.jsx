@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
-import { initChatWebSocket, getWS } from '../bll/network/ws';
+import { initChatWebSocket } from '../bll/network/messagesLoader';
 import { useFetchChatMessages } from '../hooks/useFetchChatMessages';
 import { ChatMessages } from './ChatMessages';
 import { publishMessage } from '../state/chatMessagesActions';
+import { selectCurrentUserId } from '../../authentication/users/state/usersSelectors';
 
 export const ChatContainer = () => {
   const dispatch = useDispatch();
-  const [message, setMessage] = useState();
+  const [text, setText] = useState('');
+  const currentUserId = useSelector(selectCurrentUserId);
 
   const onChange = (e) => {
-    setMessage(e.target.value);
+    setText(e.target.value);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const m = {
+    console.log('currentUserId', currentUserId);
+    const message = {
       id: uuidv4(),
-      text: message,
-      userRef: '1',
-      date: Date.now,
+      text: text,
+      userRef: currentUserId,
+      date: Date.now(),
       edited: false,
       deleted: false
     };
 
-    dispatch(publishMessage(m));
-    setMessage('');
+    dispatch(publishMessage(message));
+    setText('');
   };
 
   useFetchChatMessages();
@@ -38,10 +41,10 @@ export const ChatContainer = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <div style={{ border: '1px solid red' }}>
+      <div>
         <ChatMessages />
       </div>
-      <TextInput type="submit" onChange={onChange} value={message || ''} />
+      <TextInput type="submit" onChange={onChange} value={text} />
     </form>
   );
 };

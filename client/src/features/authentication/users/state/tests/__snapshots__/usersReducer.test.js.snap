@@ -4,24 +4,20 @@ exports[`usersReducer test suite add user test suite should add another user 1`]
 Object {
   "1": Object {
     "active": false,
-    "displayName": "jimi",
     "id": "1",
+    "userName": "jimi",
   },
-  "2": Object {
-    "active": false,
-    "displayName": "leah",
-    "id": "2",
-  },
+  "active": false,
+  "id": "2",
+  "userName": "leah",
 }
 `;
 
 exports[`usersReducer test suite add user test suite should add first user 1`] = `
 Object {
-  "1": Object {
-    "active": false,
-    "displayName": "jimi zax",
-    "id": "1",
-  },
+  "active": false,
+  "id": "1",
+  "userName": "jimi zax",
 }
 `;
 
@@ -31,13 +27,13 @@ exports[`usersReducer test suite set user active test suite should activate user
 Object {
   "1": Object {
     "active": true,
-    "displayName": "jimi",
     "id": "1",
+    "userName": "jimi",
   },
   "2": Object {
     "active": false,
-    "displayName": "leah",
     "id": "2",
+    "userName": "leah",
   },
 }
 `;
@@ -46,13 +42,13 @@ exports[`usersReducer test suite set user active test suite should deactivate us
 Object {
   "1": Object {
     "active": false,
-    "displayName": "jimi",
     "id": "1",
+    "userName": "jimi",
   },
   "2": Object {
     "active": false,
-    "displayName": "leah",
     "id": "2",
+    "userName": "leah",
   },
 }
 `;
