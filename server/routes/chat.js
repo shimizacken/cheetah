@@ -30,7 +30,7 @@ wss.on('connection', ws => {
         if (incomingMessage) {
             chatMessages[incomingMessage.id] = incomingMessage;
             const json = JSON.stringify(chatMessages);
-            
+
             for (let i = 0; i < clients.length; i++) {
                 clients[i].send(json);
             }
@@ -40,6 +40,10 @@ wss.on('connection', ws => {
   });
   
   ws.send(JSON.stringify(chatMessages));
+});
+
+wss.on('close', function(connection) {
+    // close connections
 });
 
 module.exports = wss;
