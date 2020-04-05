@@ -10,6 +10,7 @@ Object {
     "edited": false,
     "id": "1a2b3c4d",
     "text": "Hi!",
+    "userRef": "2",
   },
   "1a2s3d4f5g": Object {
     "date": 123,
@@ -17,11 +18,12 @@ Object {
     "edited": false,
     "id": "1a2s3d4f5g",
     "text": "hello all!",
+    "userRef": "1",
   },
 }
 `;
 
-exports[`chatMessagesReducer test suite edit message test suite should edit message 1`] = `
+exports[`chatMessagesReducer test suite edit message test suite should update existing message 1`] = `
 Object {
   "1a2s3d4f5g": Object {
     "date": 123,
@@ -29,20 +31,15 @@ Object {
     "edited": false,
     "id": "1a2s3d4f5g",
     "text": "hello all!",
+    "userRef": "1",
   },
-  "4q5w6e64r": Object {
+  "9i8u7y6t": Object {
     "date": 987,
     "deleted": false,
     "edited": true,
-    "id": "4q5w6e64r",
+    "id": "9i8u7y6t",
     "text": "Hi to all, I edited this message!",
-  },
-  "messageId": Object {
-    "date": 456,
-    "deleted": false,
-    "edited": false,
-    "id": "4q5w6e64r",
-    "text": "Hi!",
+    "userRef": "2",
   },
 }
 `;
@@ -55,6 +52,7 @@ Object {
     "edited": false,
     "id": "1a2s3d4f5g",
     "text": "hello all!",
+    "userRef": "1",
   },
   "1z32c15c64d": Object {
     "date": 789,
@@ -62,6 +60,7 @@ Object {
     "edited": false,
     "id": "1z32c15c64d",
     "text": "Hi there!",
+    "userRef": "3",
   },
   "4q5w6e64r": Object {
     "date": 456,
@@ -69,6 +68,7 @@ Object {
     "edited": false,
     "id": "4q5w6e64r",
     "text": "Hi!",
+    "userRef": "2",
   },
 }
 `;
@@ -81,6 +81,7 @@ Object {
     "edited": false,
     "id": "1a2s3d4f5g",
     "text": "hello all!",
+    "userRef": "1",
   },
 }
 `;
