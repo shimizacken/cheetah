@@ -13,12 +13,12 @@ describe('chatMessagesReducer test suite', () => {
 
   describe('publish message test suite', () => {
     it('should add new message', () => {
-        const message = {
-          id: '1a2s3d4f5g',
-          text: 'hello all!'
-        };
+      const message = {
+        id: '1a2s3d4f5g',
+        text: 'hello all!'
+      };
 
-        expect(messages(undefined, publishMessage(message))).toMatchSnapshot();
+      expect(messages(undefined, publishMessage(message))).toMatchSnapshot();
     });
   });
 
