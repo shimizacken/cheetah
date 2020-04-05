@@ -6,6 +6,7 @@ import { ChatContainer } from './features/chat/components/ChatContainer';
 import { SignInContainer } from './features/authentication';
 import { selectShouldDisplayChat } from './features/authentication/users/state/usersSelectors';
 import { MainLayout } from './features/layout/components/MainLayout';
+import { MainHeader } from './features/layout/components/MainHeader';
 
 export const App = () => {
   const displayChat = useSelector(selectShouldDisplayChat);
@@ -21,12 +22,10 @@ export const App = () => {
 
   return (
     <MainLayout>
-      <h1>🐆 Cheetah</h1>
-      <SignInContainer />
+      <MainHeader mode={displayChat} />
+      {!displayChat && <SignInContainer />}
       <div>{displayChat && <ChatContainer />}</div>
       <footer></footer>
     </MainLayout>
   );
 };
-
-export default App;

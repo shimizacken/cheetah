@@ -44,7 +44,9 @@ export const ChatContainer = () => {
       <div>
         <ChatMessages />
       </div>
-      <TextInput type="submit" onChange={onChange} value={text} />
+      <div style={{ width: '100%', textAlign: 'center' }}>
+        <TextInput type="submit" onChange={onChange} value={text} />
+      </div>
     </form>
   );
 };

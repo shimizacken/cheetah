@@ -1,10 +1,13 @@
 .message-wrapper {
   margin: 25px 0;
 
-  .user-name {
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .user-name {
     font-weight: bold;
   }
 
@@ -16,7 +19,6 @@
     margin: 5px 0 10px 0;
     padding: 15px;
     background-color: gainsboro;
-    // border: 1px solid gainsboro;
     border-radius: 10px;
   }
 }

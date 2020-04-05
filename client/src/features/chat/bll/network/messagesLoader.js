@@ -13,7 +13,6 @@ export const initChatWebSocket = () => {
   };
 
   connection.onmessage = (e) => {
-    console.log('messages', JSON.parse(e.data));
     store.dispatch(setMessages(JSON.parse(e.data)));
   };
 
