@@ -6,6 +6,7 @@ const usersInitialState = {};
 
 export const users = (state = usersInitialState, action) => {
   if (action.type === ADD_USER) {
+    console.log(action.user);
     return {
       ...state,
       ...action.user

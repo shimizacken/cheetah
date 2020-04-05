@@ -1,5 +1,4 @@
 const WebSocket = require('ws');
-const { v4: uuidv4 } = require('uuid');
  
 const clients = [];
 
@@ -16,7 +15,6 @@ const chatUsers = {
   [cheetahBot.id]: cheetahBot
 };
 
-
 wss.on('connection', ws => {
   clients.push(ws);
 
@@ -29,7 +27,7 @@ wss.on('connection', ws => {
         if (incomingUser) {
             chatUsers[incomingUser.id] = incomingUser;
             const json = JSON.stringify(chatUsers);
-
+            
             for (let i = 0; i < clients.length; i++) {
                 clients[i].send(json);
             }

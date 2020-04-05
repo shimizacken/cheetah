@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
-import { addUser, setCurrentUserId } from '../state/usersActions';
+import { setCurrentUserId, postUser } from '../state/usersActions';
 
 export const SignInContainer = React.memo(({ userRef, text }) => {
   const dispatch = useDispatch();
@@ -19,13 +19,11 @@ export const SignInContainer = React.memo(({ userRef, text }) => {
     dispatch(setCurrentUserId(userId));
 
     dispatch(
-      addUser({
-        [userId]: {
-          id: uuidv4(),
-          userName,
-          date: Date.now,
-          active: true
-        }
+      postUser({
+        id: uuidv4(),
+        userName,
+        date: Date.now,
+        active: true
       })
     );
   };

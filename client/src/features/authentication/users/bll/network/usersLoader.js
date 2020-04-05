@@ -13,7 +13,10 @@ export const initChatUsers = () => {
     console.log(`WebSocket error: ${error}`);
   };
 
-  connection.onmessage = (e) => store.dispatch(addUser(JSON.parse(e.data)));
+  connection.onmessage = (e) => {
+    console.log(JSON.parse(e.data));
+    store.dispatch(addUser(JSON.parse(e.data)));
+  };
 
   return () => connection;
 };
