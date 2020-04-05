@@ -1,1 +1,1 @@
-export { chat } from './state/chatReducer';
+export { chat } from './state/chatReducers';
