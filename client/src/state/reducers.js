@@ -2,12 +2,11 @@ import { createStore, compose } from 'redux';
 
 const initialState = {
   chat: {
-    users: [],
-    messages: []
+    users: [1, 2, 3]
   }
 };
 
-const reducer = (state = initialState) => {
+const reducer = (state) => {
   return state;
 };
 
