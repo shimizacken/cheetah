@@ -3,5 +3,5 @@ export const buildMessage = (id, text, date, edited, deleted) => ({
   text,
   date,
   edited,
-  deleted
+  deleted,
 });

@@ -1,4 +1,8 @@
-import { PUBLISH_MESSAGE, EDIT_MESSAGE, DELETE_MESSAGE } from "./tests/chatMessagesConstants";
+import {
+  PUBLISH_MESSAGE,
+  EDIT_MESSAGE,
+  DELETE_MESSAGE,
+} from "./chatMessagesConstants";
 import produce from "immer";
 
 const messagesInitialState = {};
@@ -7,12 +11,12 @@ export const messages = (state = messagesInitialState, action) => {
   if (action.type === PUBLISH_MESSAGE) {
     return {
       ...state,
-      [action.message.id]: action.message
+      [action.message.id]: action.message,
     };
   }
 
   if (action.type === EDIT_MESSAGE) {
-    const nextState = produce(state, draftState => {
+    const nextState = produce(state, (draftState) => {
       draftState[action.message.id] = action.message;
 
       return draftState;
@@ -22,7 +26,7 @@ export const messages = (state = messagesInitialState, action) => {
   }
 
   if (action.type === DELETE_MESSAGE) {
-    const nextState = produce(state, draftState => {
+    const nextState = produce(state, (draftState) => {
       draftState[action.messageId].deleted = true;
 
       return draftState;
