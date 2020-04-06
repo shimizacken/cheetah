@@ -2,18 +2,14 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { initChatWebSocket, closeChatWebSocket } from './features/chat/bll/network/messagesLoader';
 import { initChatUsers } from './features/authentication/users/bll/network/usersLoader';
-import { ChatContainer } from './features/chat/components/ChatContainer';
-import { SignInContainer } from './features/authentication';
 import { selectShouldDisplayChat } from './features/authentication/users/state/usersSelectors';
 import { MainLayout } from './features/layout/components/MainLayout';
 import { MainHeader } from './features/layout/components/MainHeader';
+import { HeaderDisplayMode } from './features/layout/bll/headerDisplayMode';
+import { RootRouter } from './features/routings/RootRouter';
+import { AuthenticationRouter } from './features/authentication/routing/AuthenticationRouter';
 
-export const HeaderDisplayMode = {
-  DEFAULT: 'default',
-  COLLAPSE: 'collapse'
-};
-
-export const App = () => {
+export const RootComponent = () => {
   const displayChat = useSelector(selectShouldDisplayChat);
 
   useEffect(() => {
@@ -28,8 +24,8 @@ export const App = () => {
   return (
     <MainLayout>
       <MainHeader mode={displayChat ? HeaderDisplayMode.COLLAPSE : HeaderDisplayMode.DEFAULT} />
-      {!displayChat && <SignInContainer />}
-      {displayChat && <ChatContainer />}
+      <AuthenticationRouter />
+      <RootRouter />
       <footer></footer>
     </MainLayout>
   );

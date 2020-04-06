@@ -17,6 +17,11 @@ export const ChatContainer = () => {
   const bottomEl = useRef(null);
   const inputEl = useRef(null);
 
+  const scrollAndFocus = () => {
+    bottomEl.current.scrollIntoView({ behavior: 'smooth' });
+    inputEl.current.focus();
+  };
+
   const onChange = (e) => {
     setText(e.target.value);
   };
@@ -41,11 +46,11 @@ export const ChatContainer = () => {
 
   useEffect(() => {
     initChatWebSocket();
+    scrollAndFocus();
   }, []);
 
   useEffect(() => {
-    bottomEl.current.scrollIntoView({ behavior: 'smooth' });
-    inputEl.current.focus();
+    scrollAndFocus();
   });
 
   return (
