@@ -19,4 +19,9 @@ button {
   font-size: 14px;
   outline: none;
   font-family: inherit;
+  box-sizing: border-box;
+}
+
+div {
+  box-sizing: border-box;
 }

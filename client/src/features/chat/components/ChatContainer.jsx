@@ -59,7 +59,7 @@ export const ChatContainer = () => {
         <ChatMessages messages={messages} />
         <div ref={bottomEl} />
       </div>
-      <div className={styles['text-input']}>
+      <div className={styles['text-input-wrapper']}>
         <form onSubmit={onSubmit}>
           <TextInput ref={inputEl} type="submit" onChange={onChange} value={text} placeholder="Type a message!" />
         </form>
