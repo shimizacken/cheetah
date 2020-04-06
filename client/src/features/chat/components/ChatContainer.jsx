@@ -29,6 +29,10 @@ export const ChatContainer = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    if (text.trim() === '') {
+      return;
+    }
+
     const message = {
       id: uuidv4(),
       text: text,
