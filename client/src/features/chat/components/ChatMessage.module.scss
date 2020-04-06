@@ -2,13 +2,32 @@
   display: flex;
   justify-content: flex-start;
 
+  .edit-panel {
+    display: none;
+  }
+
+  .edit-panel-active {
+    display: block;
+  }
+
+  .edit-text-input {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  &:hover {
+    .edit-panel {
+      display: block;
+    }
+  }
+
   &.current-user-message {
     justify-content: flex-end;
     cursor: pointer;
   }
 
   .message-wrapper {
-    margin: 10px 0;
+    margin: 10px 0 5px 0;
     display: inline-block;
 
     .header {
@@ -28,8 +47,6 @@
     }
 
     .content {
-      display: flex;
-      justify-content: space-between;
       margin: 5px 0 10px 0;
       padding: 15px;
       background-color: aliceblue;
@@ -44,13 +61,10 @@
         font-style: italic;
       }
 
-      .delete {
-        color: red;
-        margin-left: 10px;
-
-        &:hover {
-          cursor: pointer;
-        }
+      .edited {
+        font-size: 12px;
+        color: #888888;
+        font-style: italic;
       }
     }
   }

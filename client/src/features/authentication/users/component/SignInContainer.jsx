@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
 import { setCurrentUserId, postUser } from '../state/usersActions';
-import styles from './SignInContainer.module.scss';
 import { MainHeader } from '../../../layout/components/MainHeader';
 import { HeaderDisplayMode } from '../../../layout/bll/headerDisplayMode';
+import styles from './SignInContainer.module.scss';
 
 export const SignInContainer = React.memo(() => {
   const dispatch = useDispatch();
@@ -17,6 +17,11 @@ export const SignInContainer = React.memo(() => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (userName.trim() === '') {
+      return;
+    }
+
     const userId = uuidv4();
 
     dispatch(setCurrentUserId(userId));
