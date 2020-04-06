@@ -1,6 +1,7 @@
 .tabs-wrapper {
   display: flex;
   flex-direction: row;
+  background-color: whitesmoke;
 }
 
 .tab {
@@ -11,7 +12,7 @@
   height: 80px;
 
   background-color: whitesmoke;
-  border-bottom: gray;
+  border-bottom: 1px solid #eeeeee;
 
   &.selected {
     border: none;

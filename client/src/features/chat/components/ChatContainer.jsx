@@ -13,13 +13,14 @@ import { Tabs } from '../../../components/common/tabs/Tabs';
 export const ChatContainer = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
+  const [selectedTab, setSelectedTab] = useState(2);
   const currentUserId = useSelector(selectCurrentUserId);
   const users = useSelector(selectUsers);
   const messages = useSelector((state) => state?.chat?.messages);
   const bottomEl = useRef(null);
   const inputEl = useRef(null);
 
-  const tabs = [
+  const chatTabs = [
     {
       id: 1,
       text: `Participants (${Object.values(users).length})`,
@@ -32,8 +33,26 @@ export const ChatContainer = () => {
     }
   ];
 
+  const [tabs, setTabs] = useState(chatTabs);
+
   const tabClick = (e) => {
-    console.log(e.target.value);
+    setSelectedTab(e.target.value);
+
+    const newTabs = tabs.map((tab) => {
+      if (tab.id === parseInt(e.target.value)) {
+        return {
+          ...tab,
+          selected: true
+        };
+      }
+
+      return {
+        ...tab,
+        selected: false
+      };
+    });
+
+    setTabs(newTabs);
   };
 
   const scrollAndFocus = () => {
