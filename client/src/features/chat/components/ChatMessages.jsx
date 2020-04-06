@@ -11,6 +11,7 @@ export const ChatMessages = ({ messages }) => {
     return (
       <ChatMessageContainer
         key={message.id}
+        messageId={message.id}
         text={message.text}
         userRef={message.userRef}
         date={message.date}
