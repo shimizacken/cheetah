@@ -5,8 +5,10 @@ import { selectUser, selectIsCurrentUser } from '../../authentication/users/stat
 import { DeletedMessage } from './DeletedMessage';
 import { deleteMessage, editMessage } from '../state/chatMessagesActions';
 
-export const ChatMessageContainer = React.memo(({ message, messageId, userRef, text, date, deleted, edited }) => {
+export const ChatMessageContainer = React.memo(({ message }) => {
   const dispatch = useDispatch();
+  const { id: messageId, userRef, text, date, deleted, edited } = message;
+
   const user = useSelector(selectUser(userRef));
   const isCurrentUser = useSelector(selectIsCurrentUser(userRef));
   const formattedDate = new Date(date).toLocaleTimeString();
