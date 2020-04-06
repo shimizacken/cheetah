@@ -10,13 +10,7 @@ export const ChatMessages = () => {
     return null;
   }
 
-  return (
-    <div>
-      {Object.values(messages).map((message) => {
-        return (
-          <ChatMessageContainer key={message.id} text={message.text} userRef={message.userRef} date={message.date} />
-        );
-      })}
-    </div>
-  );
+  return Object.values(messages).map((message) => {
+    return <ChatMessageContainer key={message.id} text={message.text} userRef={message.userRef} date={message.date} />;
+  });
 };

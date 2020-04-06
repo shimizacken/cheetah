@@ -29,7 +29,7 @@ export const App = () => {
     <MainLayout>
       <MainHeader mode={displayChat ? HeaderDisplayMode.COLLAPSE : HeaderDisplayMode.DEFAULT} />
       {!displayChat && <SignInContainer />}
-      <div>{displayChat && <ChatContainer />}</div>
+      {displayChat && <ChatContainer />}
       <footer></footer>
     </MainLayout>
   );

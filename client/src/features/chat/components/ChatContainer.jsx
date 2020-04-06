@@ -7,6 +7,7 @@ import { useFetchChatMessages } from '../hooks/useFetchChatMessages';
 import { ChatMessages } from './ChatMessages';
 import { publishMessage } from '../state/chatMessagesActions';
 import { selectCurrentUserId } from '../../authentication/users/state/usersSelectors';
+import styles from './ChatContainer.module.scss';
 
 export const ChatContainer = () => {
   const dispatch = useDispatch();
@@ -40,13 +41,15 @@ export const ChatContainer = () => {
   }, []);
 
   return (
-    <form onSubmit={onSubmit}>
-      <div>
+    <div className={styles['chat-wrapper']}>
+      <div className={styles['messages']}>
         <ChatMessages />
       </div>
-      <div style={{ width: '100%', textAlign: 'center' }}>
-        <TextInput type="submit" onChange={onChange} value={text} />
+      <div className={styles['text-input']}>
+        <form onSubmit={onSubmit}>
+          <TextInput type="submit" onChange={onChange} value={text} placeholder="Type a message!" />
+        </form>
       </div>
-    </form>
+    </div>
   );
 };

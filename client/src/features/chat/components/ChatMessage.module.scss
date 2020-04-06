@@ -1,24 +1,34 @@
-.message-wrapper {
-  margin: 25px 0;
+.message-root-wrapper {
+  display: flex;
+  justify-content: flex-start;
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  &.current-user-position {
+    justify-content: flex-end;
   }
 
-  .user-name {
-    font-weight: bold;
-  }
+  .message-wrapper {
+    margin: 25px 0;
+    display: inline-block;
 
-  .date {
-    color: gainsboro;
-  }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  .content {
-    margin: 5px 0 10px 0;
-    padding: 15px;
-    background-color: gainsboro;
-    border-radius: 10px;
+    .user-name {
+      font-weight: bold;
+    }
+
+    .date {
+      color: gainsboro;
+    }
+
+    .content {
+      margin: 5px 0 10px 0;
+      padding: 15px;
+      background-color: gainsboro;
+      border-radius: 10px;
+    }
   }
 }

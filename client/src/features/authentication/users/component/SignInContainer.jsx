@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
 import { setCurrentUserId, postUser } from '../state/usersActions';
+import styles from './SignInContainer.module.scss';
 
 export const SignInContainer = React.memo(({ userRef, text }) => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export const SignInContainer = React.memo(({ userRef, text }) => {
   };
 
   return (
-    <div style={{ width: '100%', textAlign: 'center' }}>
+    <div className={styles['sign-in-wrapper']}>
       <form onSubmit={onSubmit}>
         <TextInput type="submit" onChange={onChange} value={userName} placeholder="Type name and hit the enter!" />
       </form>
