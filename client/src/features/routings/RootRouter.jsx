@@ -8,6 +8,7 @@ export const RootRouter = () => {
     <Switch>
       <Route exact path="/sign-in" component={SignInContainer} />
       <Route exact path="/chat" component={ChatContainer} />
+      <Route exact path="/participants" component={ChatContainer} />
     </Switch>
   );
 };

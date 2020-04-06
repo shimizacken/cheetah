@@ -13,7 +13,6 @@ import { Tabs } from '../../../components/common/tabs/Tabs';
 export const ChatContainer = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
-  const [selectedTab, setSelectedTab] = useState(2);
   const currentUserId = useSelector(selectCurrentUserId);
   const users = useSelector(selectUsers);
   const messages = useSelector((state) => state?.chat?.messages);
@@ -24,22 +23,22 @@ export const ChatContainer = () => {
     {
       id: 1,
       text: `Participants (${Object.values(users).length})`,
+      url: '/participants',
       selected: false
     },
     {
       id: 2,
       text: 'Chat',
+      url: '/chat',
       selected: true
     }
   ];
 
   const [tabs, setTabs] = useState(chatTabs);
 
-  const tabClick = (e) => {
-    setSelectedTab(e.target.value);
-
+  const tabClick = (tabId) => {
     const newTabs = tabs.map((tab) => {
-      if (tab.id === parseInt(e.target.value)) {
+      if (tab.id === tabId) {
         return {
           ...tab,
           selected: true

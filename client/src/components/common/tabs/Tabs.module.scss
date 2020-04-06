@@ -1,3 +1,5 @@
+@import '../../../styles/colors';
+
 .tabs-wrapper {
   display: flex;
   flex-direction: row;
@@ -5,6 +7,10 @@
 }
 
 .tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   border: none;
   outline: none;
   cursor: pointer;
@@ -12,16 +18,20 @@
   height: 80px;
 
   background-color: whitesmoke;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid $input-border-color;
+
+  text-decoration: none;
+  color: black;
 
   &.selected {
     border: none;
     border-radius: 5px;
-    border: 1px solid #eeeeee;
+    border: 1px solid $input-border-color;
     border-bottom: none;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     background-color: white;
+    cursor: auto;
 
     &:first-child {
       border-left: none;
