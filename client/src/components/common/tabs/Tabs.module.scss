@@ -4,6 +4,10 @@
   display: flex;
   flex-direction: row;
   background-color: whitesmoke;
+
+  &.dark {
+    background-color: $dark-background;
+  }
 }
 
 .tab {
@@ -20,6 +24,10 @@
   background-color: whitesmoke;
   border-bottom: 1px solid $input-border-color;
 
+  &.dark {
+    background-color: $dark-background;
+  }
+
   text-decoration: none;
   color: black;
 
@@ -32,6 +40,11 @@
     border-bottom-left-radius: 0;
     background-color: white;
     cursor: auto;
+
+    &.dark {
+      background-color: $dark-background;
+      border: 1px solid whitesmoke;
+    }
 
     &:first-child {
       border-left: none;

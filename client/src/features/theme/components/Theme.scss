@@ -8,6 +8,11 @@
 .root-dark-theme {
   color: $dark-main-font-color;
   background-color: $dark-background;
+
+  a,
+  span {
+    color: $dark-main-font-color;
+  }
 }
 
 button.default-theme {
