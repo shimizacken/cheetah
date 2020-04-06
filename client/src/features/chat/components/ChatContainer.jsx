@@ -6,16 +6,35 @@ import { initChatWebSocket } from '../bll/network/messagesLoader';
 import { useFetchChatMessages } from '../hooks/useFetchChatMessages';
 import { ChatMessages } from './ChatMessages';
 import { publishMessage } from '../state/chatMessagesActions';
-import { selectCurrentUserId } from '../../authentication/users/state/usersSelectors';
+import { selectCurrentUserId, selectUsers } from '../../authentication/users/state/usersSelectors';
 import styles from './ChatContainer.module.scss';
+import { Tabs } from '../../../components/common/tabs/Tabs';
 
 export const ChatContainer = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const currentUserId = useSelector(selectCurrentUserId);
+  const users = useSelector(selectUsers);
   const messages = useSelector((state) => state?.chat?.messages);
   const bottomEl = useRef(null);
   const inputEl = useRef(null);
+
+  const tabs = [
+    {
+      id: 1,
+      text: `Participants (${Object.values(users).length})`,
+      selected: false
+    },
+    {
+      id: 2,
+      text: 'Chat',
+      selected: true
+    }
+  ];
+
+  const tabClick = (e) => {
+    console.log(e.target.value);
+  };
 
   const scrollAndFocus = () => {
     bottomEl.current.scrollIntoView({ behavior: 'smooth' });
@@ -55,11 +74,12 @@ export const ChatContainer = () => {
 
   return (
     <div className={styles['chat-wrapper']}>
+      <Tabs tabs={tabs} onClick={tabClick} />
       <div className={styles['messages']}>
         <ChatMessages messages={messages} />
         <div ref={bottomEl} />
       </div>
-      <div className={styles['text-input']}>
+      <div className={styles['text-input-wrapper']}>
         <form onSubmit={onSubmit}>
           <TextInput ref={inputEl} type="submit" onChange={onChange} value={text} placeholder="Type a message!" />
         </form>
