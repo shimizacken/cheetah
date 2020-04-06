@@ -1,18 +1,21 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import classNames from 'classnames';
 import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
 import { initChatWebSocket } from '../bll/network/messagesLoader';
 import { useFetchChatMessages } from '../hooks/useFetchChatMessages';
 import { ChatMessages } from './ChatMessages';
 import { publishMessage } from '../state/chatMessagesActions';
 import { selectCurrentUserId } from '../../authentication/users/state/usersSelectors';
+import { selectIsDarkMode } from '../../theme/state/themeSelectors';
 import styles from './ChatContainer.module.scss';
 
 export const ChatContainer = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const currentUserId = useSelector(selectCurrentUserId);
+  const isDarkMode = useSelector(selectIsDarkMode);
   const messages = useSelector((state) => state?.chat?.messages);
   const bottomEl = useRef(null);
   const inputEl = useRef(null);
@@ -58,7 +61,7 @@ export const ChatContainer = () => {
   });
 
   return (
-    <div className={styles['chat-wrapper']}>
+    <div className={classNames(styles['chat-wrapper'], isDarkMode && styles['dark'])}>
       <div className={styles['messages']}>
         <ChatMessages messages={messages} />
         <div ref={bottomEl} />

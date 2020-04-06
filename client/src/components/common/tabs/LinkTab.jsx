@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import styles from './Tabs.module.scss';
 
-export const LinkTab = React.memo(({ text, id, url, selected, onClick }) => {
-  const style = classNames(styles['tab'], selected && styles['selected']);
+export const LinkTab = React.memo(({ text, id, url, selected, onClick, darkTheme }) => {
+  const style = classNames(styles['tab'], selected && styles['selected'], darkTheme && styles['dark']);
 
   const click = () => onClick(id);
 

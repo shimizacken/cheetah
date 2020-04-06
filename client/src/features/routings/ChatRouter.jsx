@@ -8,9 +8,12 @@ import { Tabs } from '../../components/common/tabs/Tabs';
 import { MainHeader } from '../layout/components/MainHeader';
 import { HeaderDisplayMode } from '../layout/bll/headerDisplayMode';
 import { SignedInWrapper } from '../layout/components/SignedInWrapper';
+import { selectCurrentTheme } from '../theme/state/themeSelectors';
+import { ThemeTypes } from '../theme/bll/themeTypes';
 
 export const ChatRouter = () => {
   const users = useSelector(selectUsers);
+  const themeType = useSelector(selectCurrentTheme);
 
   const chatTabs = [
     {
@@ -50,7 +53,7 @@ export const ChatRouter = () => {
   return (
     <SignedInWrapper>
       <MainHeader mode={HeaderDisplayMode.COLLAPSE} />
-      <Tabs tabs={tabs} onClick={tabClick} />
+      <Tabs tabs={tabs} onClick={tabClick} darkTheme={themeType === ThemeTypes.dark} />
       <Switch>
         <Route exact path="/chat" component={ChatContainer} />
         <Route exact path="/participants" component={ParticipantsContainer} />

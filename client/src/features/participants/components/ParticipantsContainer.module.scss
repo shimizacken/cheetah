@@ -1,4 +1,10 @@
+@import '../../../styles/colors';
+
 .participants-wrapper {
   width: 100%;
   background-color: white;
+
+  &.dark {
+    background-color: $dark-background;
+  }
 }
