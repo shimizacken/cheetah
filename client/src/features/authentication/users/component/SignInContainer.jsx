@@ -5,7 +5,7 @@ import { TextInput } from '../../../../components/common/inputs/textInput/TextIn
 import { setCurrentUserId, postUser } from '../state/usersActions';
 import styles from './SignInContainer.module.scss';
 
-export const SignInContainer = React.memo(({ userRef, text }) => {
+export const SignInContainer = React.memo(() => {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState('');
 

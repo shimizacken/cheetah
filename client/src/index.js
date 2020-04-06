@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './state';
-import { App } from './App';
+import { RootComponent } from './RootComponent';
 import * as serviceWorker from './serviceWorker';
 import './styles/base.scss';
 import './index.scss';
@@ -10,7 +11,9 @@ import './index.scss';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <HashRouter>
+        <RootComponent />
+      </HashRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
