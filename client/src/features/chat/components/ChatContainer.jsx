@@ -20,7 +20,7 @@ export const ChatContainer = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('currentUserId', currentUserId);
+
     const message = {
       id: uuidv4(),
       text: text,

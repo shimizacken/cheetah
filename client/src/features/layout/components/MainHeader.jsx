@@ -10,7 +10,7 @@ export const MainHeader = ({ mode }) => {
 
   return (
     <div className={styles['main-header']}>
-      <img src={img} alt="Cheetah" width={50} className={styles.logo} /> Cheetah!
+      <img src={img} alt="Cheetah" width={50} className={styles.logo} />
     </div>
   );
 };
