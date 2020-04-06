@@ -25,3 +25,9 @@ button {
 div {
   box-sizing: border-box;
 }
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #aaaaaa;
+  opacity: 1; /* Firefox */
+}
