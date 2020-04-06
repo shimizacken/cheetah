@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { MessageHeader } from './MessageHeader';
 import { EditMessagePanel } from './EditMessagePanel';
-import styles from './ChatMessage.module.scss';
-import { CheckmarkButton } from './DeleteButton';
+import { CheckmarkButton } from './EditButtons';
 import { TextInputTypes } from '../../../components/common/inputs/textInput/textInputTypes';
 import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
+import styles from './ChatMessage.module.scss';
 
 export const ChatMessage = React.memo(
   ({ userName, text, active, date, isCurrentUser, deleteMessageClick, messageId, updateMessage, edited }) => {
@@ -40,7 +40,10 @@ export const ChatMessage = React.memo(
           )}
           <div className={styles['edit-panel']}>
             {isCurrentUser && (
-              <EditMessagePanel updateMessageClick={editClick} onClick={() => deleteMessageClick(messageId)} />
+              <EditMessagePanel
+                updateMessageClick={editClick}
+                deleteMessageClick={() => deleteMessageClick(messageId)}
+              />
             )}
           </div>
         </div>
