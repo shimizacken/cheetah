@@ -1,6 +1,6 @@
-import { getPersistedTheme } from 'app/features/theme/bll/getPersistedTheme';
 import { TOGGLE_THEME } from './constants';
 import { ThemeTypes } from '../bll/themeTypes';
+import { getPersistedTheme } from '../bll/getPersistedTheme';
 
 const themeType = (state = ThemeTypes.light, action) => {
   if (action.type === TOGGLE_THEME) {
