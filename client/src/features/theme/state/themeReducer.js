@@ -2,7 +2,7 @@ import { TOGGLE_THEME } from './constants';
 import { ThemeTypes } from '../bll/themeTypes';
 import { getPersistedTheme } from '../bll/getPersistedTheme';
 
-const themeType = (state = ThemeTypes.light, action) => {
+const themeType = (state = ThemeTypes.dark, action) => {
   if (action.type === TOGGLE_THEME) {
     return action.themeType;
   }

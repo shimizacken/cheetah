@@ -4,6 +4,7 @@ import { initChatUsers } from './features/authentication/users/bll/network/users
 import { MainLayout } from './features/layout/components/MainLayout';
 import { RootRouter } from './features/routings/RootRouter';
 import { AuthenticationRouter } from './features/authentication/routing/AuthenticationRouter';
+import { Theme, ToggleTheme } from './features/theme';
 
 export const RootComponent = () => {
   useEffect(() => {
@@ -16,10 +17,13 @@ export const RootComponent = () => {
   }, []);
 
   return (
-    <MainLayout>
-      <AuthenticationRouter />
-      <RootRouter />
-      <footer />
-    </MainLayout>
+    <Theme>
+      <MainLayout>
+        <ToggleTheme />
+        <AuthenticationRouter />
+        <RootRouter />
+        <footer />
+      </MainLayout>
+    </Theme>
   );
 };

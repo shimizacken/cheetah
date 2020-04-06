@@ -4,5 +4,5 @@ import { themeStorageKey } from './themeStorageKey';
 export const getPersistedTheme = (storage) => {
   const themeType = storage.getItem(themeStorageKey);
 
-  return themeType ? themeType : ThemeTypes.light;
+  return themeType ? themeType : ThemeTypes.dark;
 };
