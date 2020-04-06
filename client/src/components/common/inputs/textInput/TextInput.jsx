@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './TextInput.module.scss';
 
-export const TextInput = ({ value, onChange, disabled, placeholder, className }) => (
+export const TextInput = React.forwardRef(({ value, onChange, disabled, placeholder, className }, ref) => (
   <input
+    ref={ref}
     className={classNames(styles['text-input'], className)}
     type="text"
     value={value}
@@ -12,7 +13,7 @@ export const TextInput = ({ value, onChange, disabled, placeholder, className })
     placeholder={placeholder}
     disabled={disabled}
   />
-);
+));
 
 TextInput.propTypes = {
   value: PropTypes.string.isRequired,

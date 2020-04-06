@@ -1,14 +1,13 @@
 import React from 'react';
-import { Dot } from '../../../components/common/dot/Dot';
+import classNames from 'classnames';
+import { MessageHeader } from './MessageHeader';
 import styles from './ChatMessage.module.scss';
 
-export const ChatMessage = React.memo(({ userName, text, active, date }) => (
-  <div className={styles['message-wrapper']}>
-    <div className={styles['user-name']}>
-      <span>{userName}</span>
-      <span>{date}</span>
+export const ChatMessage = React.memo(({ userName, text, active, date, isCurrentUser }) => (
+  <div className={classNames(styles['message-root-wrapper'], isCurrentUser && styles['current-user-message'])}>
+    <div className={styles['message-wrapper']}>
+      <MessageHeader userName={userName} active={active} date={date} />
+      <div className={classNames(styles['content'], isCurrentUser && styles['current-user-message'])}>{text}</div>
     </div>
-    <div className={styles['content']}>{text}</div>
-    {active && <Dot />}
   </div>
 ));

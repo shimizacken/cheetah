@@ -11,3 +11,8 @@ export const selectShouldDisplayChat = createSelector(
   selectCurrentUserId,
   (users, currentUserId) => users?.[currentUserId] !== undefined
 );
+
+export const selectIsCurrentUser = (userId) =>
+  createSelector(selectCurrentUserId, (currentUserId) => {
+    return userId === currentUserId;
+  });
