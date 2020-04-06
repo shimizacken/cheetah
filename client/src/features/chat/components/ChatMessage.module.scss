@@ -28,6 +28,8 @@
     }
 
     .content {
+      display: flex;
+      justify-content: space-between;
       margin: 5px 0 10px 0;
       padding: 15px;
       background-color: aliceblue;
@@ -40,6 +42,15 @@
       &.deleted {
         background-color: whitesmoke;
         font-style: italic;
+      }
+
+      .delete {
+        color: red;
+        margin-left: 10px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
