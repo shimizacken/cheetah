@@ -7,6 +7,7 @@ import { selectUsers } from '../authentication/users/state/usersSelectors';
 import { Tabs } from '../../components/common/tabs/Tabs';
 import { MainHeader } from '../layout/components/MainHeader';
 import { HeaderDisplayMode } from '../layout/bll/headerDisplayMode';
+import { SignedInWrapper } from '../layout/components/SignedInWrapper';
 
 export const ChatRouter = () => {
   const users = useSelector(selectUsers);
@@ -47,13 +48,13 @@ export const ChatRouter = () => {
   };
 
   return (
-    <div>
+    <SignedInWrapper>
       <MainHeader mode={HeaderDisplayMode.COLLAPSE} />
       <Tabs tabs={tabs} onClick={tabClick} />
       <Switch>
         <Route exact path="/chat" component={ChatContainer} />
         <Route exact path="/participants" component={ParticipantsContainer} />
       </Switch>
-    </div>
+    </SignedInWrapper>
   );
 };

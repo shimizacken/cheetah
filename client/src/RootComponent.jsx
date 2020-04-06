@@ -19,7 +19,7 @@ export const RootComponent = () => {
     <MainLayout>
       <AuthenticationRouter />
       <RootRouter />
-      <footer></footer>
+      <footer />
     </MainLayout>
   );
 };
