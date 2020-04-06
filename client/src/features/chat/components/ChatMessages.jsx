@@ -11,6 +11,14 @@ export const ChatMessages = () => {
   }
 
   return Object.values(messages).map((message) => {
-    return <ChatMessageContainer key={message.id} text={message.text} userRef={message.userRef} date={message.date} />;
+    return (
+      <ChatMessageContainer
+        key={message.id}
+        text={message.text}
+        userRef={message.userRef}
+        date={message.date}
+        deleted={message.deleted}
+      />
+    );
   });
 };

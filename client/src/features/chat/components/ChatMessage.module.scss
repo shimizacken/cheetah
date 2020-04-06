@@ -30,11 +30,16 @@
     .content {
       margin: 5px 0 10px 0;
       padding: 15px;
-      background-color: gainsboro;
+      background-color: aliceblue;
       border-radius: 10px;
 
       &.current-user-message {
-        background-color: orange;
+        background-color: peachpuff;
+      }
+
+      &.deleted {
+        background-color: whitesmoke;
+        font-style: italic;
       }
     }
   }
