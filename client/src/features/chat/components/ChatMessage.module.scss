@@ -2,13 +2,23 @@
   display: flex;
   justify-content: flex-start;
 
+  .edit-panel {
+    display: none;
+  }
+
+  &:hover {
+    .edit-panel {
+      display: block;
+    }
+  }
+
   &.current-user-message {
     justify-content: flex-end;
     cursor: pointer;
   }
 
   .message-wrapper {
-    margin: 10px 0;
+    margin: 10px 0 5px 0;
     display: inline-block;
 
     .header {
@@ -28,8 +38,6 @@
     }
 
     .content {
-      display: flex;
-      justify-content: space-between;
       margin: 5px 0 10px 0;
       padding: 15px;
       background-color: aliceblue;
@@ -41,6 +49,12 @@
 
       &.deleted {
         background-color: whitesmoke;
+        font-style: italic;
+      }
+
+      .edited {
+        font-size: 12px;
+        color: #888888;
         font-style: italic;
       }
 

@@ -16,6 +16,8 @@ export const ChatMessages = ({ messages }) => {
         userRef={message.userRef}
         date={message.date}
         deleted={message.deleted}
+        edited={message.edited}
+        message={message}
       />
     );
   });

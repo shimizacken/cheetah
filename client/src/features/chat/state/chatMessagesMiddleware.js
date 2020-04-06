@@ -8,6 +8,7 @@ export const chatMessagesMiddleware = ({ getState }) => (next) => (action) => {
   }
 
   if (action.type === EDIT_MESSAGE) {
+    debugger;
     getWS().send(JSON.stringify(action.message));
   }
 
