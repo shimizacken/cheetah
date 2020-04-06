@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { MessageHeader } from './MessageHeader';
 import { EditMessagePanel } from './EditMessagePanel';
-import { CheckmarkButton } from './EditButtons';
 import { TextInputTypes } from '../../../components/common/inputs/textInput/textInputTypes';
 import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
 import styles from './ChatMessage.module.scss';
@@ -26,7 +25,6 @@ export const ChatMessage = React.memo(
           {edit ? (
             <div>
               <TextInput inputType={TextInputTypes.MULTILINE} onChange={editChange} value={editedText} />
-              <CheckmarkButton onClick={updateMessageClick} />
             </div>
           ) : (
             <div className={classNames(styles['content'], isCurrentUser && styles['current-user-message'])}>
@@ -41,8 +39,10 @@ export const ChatMessage = React.memo(
           <div className={styles['edit-panel']}>
             {isCurrentUser && (
               <EditMessagePanel
-                updateMessageClick={editClick}
+                editClick={editClick}
+                updateMessageClick={updateMessageClick}
                 deleteMessageClick={() => deleteMessageClick(messageId)}
+                isEdit={edit}
               />
             )}
           </div>
