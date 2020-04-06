@@ -6,6 +6,11 @@
     display: none;
   }
 
+  .edit-text-input {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
   &:hover {
     .edit-panel {
       display: block;

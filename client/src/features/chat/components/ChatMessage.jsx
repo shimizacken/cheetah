@@ -12,10 +12,21 @@ export const ChatMessage = React.memo(
     const [editedText, setEditedText] = useState(text);
 
     const editChange = (e) => setEditedText(e.target.value);
-    const editClick = (e) => setEdit(true);
-    const updateMessageClick = () => {
-      updateMessage(editedText);
+
+    const editMessage = () => setEdit(true);
+
+    const cancelEdit = () => {
       setEdit(false);
+      setEditedText(text);
+    };
+
+    const updateMessageClick = () => {
+      if (editedText !== text) {
+        updateMessage(editedText);
+        setEdit(false);
+      } else {
+        setEdit(false);
+      }
     };
 
     return (
@@ -23,9 +34,12 @@ export const ChatMessage = React.memo(
         <div className={styles['message-wrapper']}>
           <MessageHeader userName={userName} active={active} date={date} />
           {edit ? (
-            <div>
-              <TextInput inputType={TextInputTypes.MULTILINE} onChange={editChange} value={editedText} />
-            </div>
+            <TextInput
+              inputType={TextInputTypes.MULTILINE}
+              onChange={editChange}
+              value={editedText}
+              className={styles['edit-text-input']}
+            />
           ) : (
             <div className={classNames(styles['content'], isCurrentUser && styles['current-user-message'])}>
               <div>{text}</div>
@@ -39,7 +53,8 @@ export const ChatMessage = React.memo(
           <div className={styles['edit-panel']}>
             {isCurrentUser && (
               <EditMessagePanel
-                editClick={editClick}
+                editMessage={editMessage}
+                cancelEdit={cancelEdit}
                 updateMessageClick={updateMessageClick}
                 deleteMessageClick={() => deleteMessageClick(messageId)}
                 isEdit={edit}
