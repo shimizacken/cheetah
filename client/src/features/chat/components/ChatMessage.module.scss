@@ -2,8 +2,9 @@
   display: flex;
   justify-content: flex-start;
 
-  &.current-user-position {
+  &.current-user-message {
     justify-content: flex-end;
+    cursor: pointer;
   }
 
   .message-wrapper {
@@ -22,6 +23,8 @@
 
     .date {
       color: gainsboro;
+      font-size: 12px;
+      margin-left: 10px;
     }
 
     .content {
@@ -29,6 +32,10 @@
       padding: 15px;
       background-color: gainsboro;
       border-radius: 10px;
+
+      &.current-user-message {
+        background-color: orange;
+      }
     }
   }
 }
