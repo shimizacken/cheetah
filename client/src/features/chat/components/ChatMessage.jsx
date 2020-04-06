@@ -5,27 +5,28 @@ import { EditMessagePanel } from './EditMessagePanel';
 import { TextInputTypes } from '../../../components/common/inputs/textInput/textInputTypes';
 import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
 import styles from './ChatMessage.module.scss';
+import { CancelButton, CheckmarkButton } from './EditButtons';
 
 export const ChatMessage = React.memo(
   ({ userName, text, active, date, isCurrentUser, deleteMessageClick, messageId, updateMessage, edited }) => {
-    const [edit, setEdit] = useState(false);
+    const [isEdit, setIsEdit] = useState(false);
     const [editedText, setEditedText] = useState(text);
 
     const editChange = (e) => setEditedText(e.target.value);
 
-    const editMessage = () => setEdit(true);
+    const editMessage = () => setIsEdit(true);
 
     const cancelEdit = () => {
-      setEdit(false);
+      setIsEdit(false);
       setEditedText(text);
     };
 
     const updateMessageClick = () => {
       if (editedText !== text) {
         updateMessage(editedText);
-        setEdit(false);
+        setIsEdit(false);
       } else {
-        setEdit(false);
+        setIsEdit(false);
       }
     };
 
@@ -33,7 +34,7 @@ export const ChatMessage = React.memo(
       <div className={classNames(styles['message-root-wrapper'], isCurrentUser && styles['current-user-message'])}>
         <div className={styles['message-wrapper']}>
           <MessageHeader userName={userName} active={active} date={date} />
-          {edit ? (
+          {isEdit ? (
             <TextInput
               inputType={TextInputTypes.MULTILINE}
               onChange={editChange}
@@ -51,16 +52,22 @@ export const ChatMessage = React.memo(
             </div>
           )}
           <div className={styles['edit-panel']}>
-            {isCurrentUser && (
+            {isCurrentUser && !isEdit && (
               <EditMessagePanel
                 editMessage={editMessage}
                 cancelEdit={cancelEdit}
                 updateMessageClick={updateMessageClick}
                 deleteMessageClick={() => deleteMessageClick(messageId)}
-                isEdit={edit}
+                isEdit={isEdit}
               />
             )}
           </div>
+          {isEdit && (
+            <div className={styles['edit-panel-active']}>
+              <CancelButton onClick={cancelEdit} />
+              <CheckmarkButton onClick={() => updateMessageClick(messageId)} />
+            </div>
+          )}
         </div>
       </div>
     );
