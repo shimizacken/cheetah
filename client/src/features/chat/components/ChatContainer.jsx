@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
@@ -13,6 +13,8 @@ export const ChatContainer = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const currentUserId = useSelector(selectCurrentUserId);
+  const bottomEl = useRef(null);
+  const inputEl = useRef(null);
 
   const onChange = (e) => {
     setText(e.target.value);
@@ -40,14 +42,20 @@ export const ChatContainer = () => {
     initChatWebSocket();
   }, []);
 
+  useEffect(() => {
+    bottomEl.current.scrollIntoView({ behavior: 'smooth' });
+    inputEl.current.focus();
+  });
+
   return (
     <div className={styles['chat-wrapper']}>
       <div className={styles['messages']}>
         <ChatMessages />
+        <div ref={bottomEl} />
       </div>
       <div className={styles['text-input']}>
         <form onSubmit={onSubmit}>
-          <TextInput type="submit" onChange={onChange} value={text} placeholder="Type a message!" />
+          <TextInput ref={inputEl} type="submit" onChange={onChange} value={text} placeholder="Type a message!" />
         </form>
       </div>
     </div>
