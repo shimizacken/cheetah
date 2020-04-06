@@ -6,53 +6,16 @@ import { initChatWebSocket } from '../bll/network/messagesLoader';
 import { useFetchChatMessages } from '../hooks/useFetchChatMessages';
 import { ChatMessages } from './ChatMessages';
 import { publishMessage } from '../state/chatMessagesActions';
-import { selectCurrentUserId, selectUsers } from '../../authentication/users/state/usersSelectors';
+import { selectCurrentUserId } from '../../authentication/users/state/usersSelectors';
 import styles from './ChatContainer.module.scss';
-import { Tabs } from '../../../components/common/tabs/Tabs';
 
 export const ChatContainer = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const currentUserId = useSelector(selectCurrentUserId);
-  const users = useSelector(selectUsers);
   const messages = useSelector((state) => state?.chat?.messages);
   const bottomEl = useRef(null);
   const inputEl = useRef(null);
-
-  const chatTabs = [
-    {
-      id: 1,
-      text: `Participants (${Object.values(users).length})`,
-      url: '/participants',
-      selected: false
-    },
-    {
-      id: 2,
-      text: 'Chat',
-      url: '/chat',
-      selected: true
-    }
-  ];
-
-  const [tabs, setTabs] = useState(chatTabs);
-
-  const tabClick = (tabId) => {
-    const newTabs = tabs.map((tab) => {
-      if (tab.id === tabId) {
-        return {
-          ...tab,
-          selected: true
-        };
-      }
-
-      return {
-        ...tab,
-        selected: false
-      };
-    });
-
-    setTabs(newTabs);
-  };
 
   const scrollAndFocus = () => {
     bottomEl.current.scrollIntoView({ behavior: 'smooth' });
@@ -92,7 +55,6 @@ export const ChatContainer = () => {
 
   return (
     <div className={styles['chat-wrapper']}>
-      <Tabs tabs={tabs} onClick={tabClick} />
       <div className={styles['messages']}>
         <ChatMessages messages={messages} />
         <div ref={bottomEl} />
