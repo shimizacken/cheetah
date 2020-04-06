@@ -3,4 +3,7 @@
 .participant {
   padding: 25px;
   border-bottom: 1px solid $input-border-color;
+
+  &.dark {
+  }
 }

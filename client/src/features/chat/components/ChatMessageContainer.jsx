@@ -4,6 +4,8 @@ import { ChatMessage } from './ChatMessage';
 import { selectUser, selectIsCurrentUser } from '../../authentication/users/state/usersSelectors';
 import { DeletedMessage } from './DeletedMessage';
 import { deleteMessage, editMessage } from '../state/chatMessagesActions';
+import { selectIsDarkMode } from '../../theme/state/themeSelectors';
+import { ThemeTypes } from '../../theme/bll/themeTypes';
 
 export const ChatMessageContainer = React.memo(({ message }) => {
   const dispatch = useDispatch();
@@ -11,6 +13,7 @@ export const ChatMessageContainer = React.memo(({ message }) => {
 
   const user = useSelector(selectUser(userRef));
   const isCurrentUser = useSelector(selectIsCurrentUser(userRef));
+  const isDarkMode = useSelector(selectIsDarkMode);
   const formattedDate = new Date(date).toLocaleTimeString();
 
   const deleteMessageClick = (messageId) => dispatch(deleteMessage(messageId));
@@ -39,6 +42,7 @@ export const ChatMessageContainer = React.memo(({ message }) => {
       deleteMessageClick={deleteMessageClick}
       updateMessage={updateMessageClick}
       edited={edited}
+      darkTheme={isDarkMode}
     />
   );
 });

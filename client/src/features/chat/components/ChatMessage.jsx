@@ -8,7 +8,18 @@ import styles from './ChatMessage.module.scss';
 import { CancelButton, CheckmarkButton } from './EditButtons';
 
 export const ChatMessage = React.memo(
-  ({ userName, text, active, date, isCurrentUser, deleteMessageClick, messageId, updateMessage, edited }) => {
+  ({
+    userName,
+    text,
+    active,
+    date,
+    isCurrentUser,
+    deleteMessageClick,
+    messageId,
+    updateMessage,
+    edited,
+    darkTheme
+  }) => {
     const [isEdit, setIsEdit] = useState(false);
     const [editedText, setEditedText] = useState(text);
 
@@ -42,7 +53,13 @@ export const ChatMessage = React.memo(
               className={styles['edit-text-input']}
             />
           ) : (
-            <div className={classNames(styles['content'], isCurrentUser && styles['current-user-message'])}>
+            <div
+              className={classNames(
+                styles['content'],
+                isCurrentUser && styles['current-user-message'],
+                darkTheme && styles['dark']
+              )}
+            >
               <div>{text}</div>
               {edited && (
                 <div className={styles['edited']}>

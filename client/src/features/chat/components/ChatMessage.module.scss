@@ -52,8 +52,16 @@
       background-color: aliceblue;
       border-radius: 10px;
 
+      &.dark {
+        background-color: cadetblue;
+      }
+
       &.current-user-message {
         background-color: peachpuff;
+
+        &.dark {
+          background-color: brown;
+        }
       }
 
       &.deleted {
