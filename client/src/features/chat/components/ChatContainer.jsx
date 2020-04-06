@@ -13,6 +13,7 @@ export const ChatContainer = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const currentUserId = useSelector(selectCurrentUserId);
+  const messages = useSelector((state) => state?.chat?.messages);
   const bottomEl = useRef(null);
   const inputEl = useRef(null);
 
@@ -50,7 +51,7 @@ export const ChatContainer = () => {
   return (
     <div className={styles['chat-wrapper']}>
       <div className={styles['messages']}>
-        <ChatMessages />
+        <ChatMessages messages={messages} />
         <div ref={bottomEl} />
       </div>
       <div className={styles['text-input']}>
