@@ -3,12 +3,7 @@ import { PUBLISH_MESSAGE, DELETE_MESSAGE, EDIT_MESSAGE } from './chatMessagesCon
 import { selectMessage } from './chatMessagesSelectors';
 
 export const chatMessagesMiddleware = ({ getState }) => (next) => (action) => {
-  if (action.type === PUBLISH_MESSAGE) {
-    getWS().send(JSON.stringify(action.message));
-  }
-
-  if (action.type === EDIT_MESSAGE) {
-    debugger;
+  if (action.type === PUBLISH_MESSAGE || action.type === EDIT_MESSAGE) {
     getWS().send(JSON.stringify(action.message));
   }
 

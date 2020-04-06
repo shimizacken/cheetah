@@ -17,7 +17,6 @@ export const ChatMessages = ({ messages }) => {
         date={message.date}
         deleted={message.deleted}
         edited={message.edited}
-        message={message}
       />
     );
   });

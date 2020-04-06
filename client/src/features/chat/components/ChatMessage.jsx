@@ -4,6 +4,8 @@ import { MessageHeader } from './MessageHeader';
 import { EditMessagePanel } from './EditMessagePanel';
 import styles from './ChatMessage.module.scss';
 import { CheckmarkButton } from './DeleteButton';
+import { TextInputTypes } from '../../../components/common/inputs/textInput/textInputTypes';
+import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
 
 export const ChatMessage = React.memo(
   ({ userName, text, active, date, isCurrentUser, deleteMessageClick, messageId, updateMessage, edited }) => {
@@ -12,6 +14,10 @@ export const ChatMessage = React.memo(
 
     const editChange = (e) => setEditedText(e.target.value);
     const editClick = (e) => setEdit(true);
+    const updateMessageClick = () => {
+      updateMessage(editedText);
+      setEdit(false);
+    };
 
     return (
       <div className={classNames(styles['message-root-wrapper'], isCurrentUser && styles['current-user-message'])}>
@@ -19,8 +25,8 @@ export const ChatMessage = React.memo(
           <MessageHeader userName={userName} active={active} date={date} />
           {edit ? (
             <div>
-              <textarea onChange={editChange} value={editedText} />
-              <CheckmarkButton onClick={() => updateMessage(editedText)} />
+              <TextInput inputType={TextInputTypes.MULTILINE} onChange={editChange} value={editedText} />
+              <CheckmarkButton onClick={updateMessageClick} />
             </div>
           ) : (
             <div className={classNames(styles['content'], isCurrentUser && styles['current-user-message'])}>
