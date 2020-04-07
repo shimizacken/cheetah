@@ -1,6 +1,7 @@
 .message-root-wrapper {
   display: flex;
   justify-content: flex-start;
+  position: relative;
 
   .edit-panel {
     display: none;
@@ -8,6 +9,8 @@
 
   .edit-panel-active {
     display: block;
+    position: absolute;
+    right: 0;
   }
 
   .edit-text-input {
@@ -18,6 +21,7 @@
   &:hover {
     .edit-panel {
       display: block;
+      position: relative;
     }
   }
 
@@ -27,7 +31,7 @@
   }
 
   .message-wrapper {
-    margin: 10px 0 5px 0;
+    margin: 10px 0 15px 0;
     display: inline-block;
 
     .header {
