@@ -37,6 +37,7 @@ export const ChatMessageContainer = ({ message }) => {
       message={message}
       userName={user?.userName}
       active={user?.active}
+      date={formattedDate}
       isCurrentUser={isCurrentUser}
       deleteMessageClick={deleteMessageClick}
       updateMessage={updateMessageClick}
