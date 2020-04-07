@@ -10,7 +10,7 @@ export const AuthenticationRouter = () => {
   return (
     <Switch>
       <Route
-        path="/"
+        path={Routes.DEFAULT}
         children={() => {
           if (!isUserOnline) {
             return <Redirect to={Routes.SIGN_IN} />;
