@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { ChatMessage } from './chatMessage/ChatMessage';
-import { selectUser, selectIsCurrentUser } from '../../authentication/users/state/usersSelectors';
-import { deleteMessage, editMessage } from '../state/chatMessagesActions';
-import { selectIsDarkMode } from '../../theme/state/themeSelectors';
-import { messagePropTypes } from './chatMessage/messagePropTypes';
-import { DeletedMessage } from './chatMessage/DeletedMessage';
+import { ChatMessage } from './ChatMessage';
+import { selectUser, selectIsCurrentUser } from '../../../authentication/users/state/usersSelectors';
+import { deleteMessage, editMessage } from '../../state/chatMessagesActions';
+import { selectIsDarkMode } from '../../../theme/state/themeSelectors';
+import { messagePropTypes } from './messagePropTypes';
+import { DeletedMessage } from './DeletedMessage';
 
 export const ChatMessageContainer = ({ message }) => {
   const dispatch = useDispatch();
