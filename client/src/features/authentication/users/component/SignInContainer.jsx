@@ -19,7 +19,7 @@ export const SignInContainer = React.memo(() => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (isTextEmpty(userName) {
+    if (isTextEmpty(userName)) {
       return;
     }
 
