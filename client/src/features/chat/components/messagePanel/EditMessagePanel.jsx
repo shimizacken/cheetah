@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { EditButton, DeleteButton } from './EditButtons';
 import styles from './EditMessagePanel.module.scss';
 
-export const EditMessagePanel = ({ messageId, deleteMessageClick, editMessage }) => {
+export const EditMessagePanel = ({ messageId, deleteMessageClick, editMessage, darkTheme }) => {
   return (
     <div className={styles['edit-message-wrapper']}>
-      <EditButton onClick={() => editMessage()} />
-      <DeleteButton onClick={() => deleteMessageClick(messageId)} />
+      <EditButton onClick={() => editMessage()} darkTheme={darkTheme} />
+      <DeleteButton onClick={() => deleteMessageClick(messageId)} darkTheme={darkTheme} />
     </div>
   );
 };
