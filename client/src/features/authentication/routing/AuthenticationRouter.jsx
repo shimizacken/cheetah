@@ -1,10 +1,10 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectShouldDisplayChat } from '../users/state/usersSelectors';
+import { selectIsUserOnline } from '../users/state/usersSelectors';
 
 export const AuthenticationRouter = () => {
-  const isUserOnline = useSelector(selectShouldDisplayChat);
+  const isUserOnline = useSelector(selectIsUserOnline);
 
   return (
     <Switch>

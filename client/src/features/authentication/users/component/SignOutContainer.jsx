@@ -16,9 +16,5 @@ export const SignOutContainer = React.memo(() => {
     dispatch(signOut(currentUserId));
   };
 
-  return (
-    <div>
-      <IconButton src={isDarkMode ? SignOffNight : SignOffDay} alt="Sign off" width={50} onClick={signOff} />
-    </div>
-  );
+  return <IconButton src={isDarkMode ? SignOffNight : SignOffDay} alt="Sign off" width={50} onClick={signOff} />;
 });

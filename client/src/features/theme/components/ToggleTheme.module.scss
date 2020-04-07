@@ -1,16 +1,9 @@
 .root-toggle-theme {
+  margin-top: -7px;
+}
+
+.root-toggle-theme-sticky {
   position: fixed;
   right: 15px;
   top: 15px;
-
-  > label {
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-    margin-left: 10px;
-  }
-
-  > label:nth-child(2) {
-    bottom: 1px;
-  }
 }
