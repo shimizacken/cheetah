@@ -1,4 +1,4 @@
-import { ADD_USER, REMOVE_USER, SET_USER_ACTIVE, SET_CURRENT_USER_ID, POST_USER } from './usersConstants';
+import { ADD_USER, REMOVE_USER, SET_USER_ACTIVE, SET_CURRENT_USER_ID, POST_USER, SIGN_OUT } from './usersConstants';
 
 export const postUser = (user) => ({
   type: POST_USER,
@@ -23,4 +23,9 @@ export const setUserActive = (userId) => ({
 export const setCurrentUserId = (currentUserId) => ({
   type: SET_CURRENT_USER_ID,
   currentUserId
+});
+
+export const signOut = (userId) => ({
+  type: SIGN_OUT,
+  userId
 });
