@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DeleteButton, EditButton } from './EditButtons';
+import { EditButton, DeleteButton } from './EditButtons';
 import styles from './EditMessagePanel.module.scss';
 
 export const EditMessagePanel = ({ messageId, deleteMessageClick, editMessage }) => {
