@@ -29,7 +29,14 @@ export const ChatMessageContainer = ({ message }) => {
     );
 
   if (deleted) {
-    return <DeletedMessage userName={user?.userName} isCurrentUser={isCurrentUser} date={formattedDate} active={user?.active} />;
+    return (
+      <DeletedMessage
+        userName={user?.userName}
+        isCurrentUser={isCurrentUser}
+        date={formattedDate}
+        active={user?.active}
+      />
+    );
   }
 
   return (
