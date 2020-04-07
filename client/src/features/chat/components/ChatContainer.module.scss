@@ -6,6 +6,10 @@
   justify-content: flex-end;
   height: 80vh;
 
+  @media screen and (max-width: 480px) {
+    height: 75vh;
+  }
+
   background-color: white;
 
   &.dark {
