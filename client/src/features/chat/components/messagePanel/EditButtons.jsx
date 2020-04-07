@@ -1,13 +1,19 @@
 import React from 'react';
-import DeleteIcon from '../../../../assets/delete.png';
-import EditIcon from '../../../../assets/pencil.png';
-import CheckmarkIcon from '../../../../assets/save.png';
-import CancelIcon from '../../../../assets/cancel.png';
+import DeleteIcon from '../../../../assets/icons/png/delete.png';
+import DeleteIconLight from '../../../../assets/icons/png/delete-light.png';
+import EditIcon from '../../../../assets/icons/png/pencil.png';
+import EditIconLight from '../../../../assets/icons/png/pencil-light.png';
+import CheckmarkIcon from '../../../../assets/icons/png/save.png';
+import CancelIcon from '../../../../assets/icons/png/cancel.png';
 import { IconButton } from '../../../../components/common/button/IconButton';
 
-export const DeleteButton = React.memo(({ onClick }) => <IconButton onClick={onClick} src={DeleteIcon} alt="delete" />);
+export const DeleteButton = React.memo(({ onClick, darkTheme }) => (
+  <IconButton onClick={onClick} src={darkTheme ? DeleteIconLight : DeleteIcon} alt="delete" />
+));
 
-export const EditButton = React.memo(({ onClick }) => <IconButton onClick={onClick} src={EditIcon} alt="Edit" />);
+export const EditButton = React.memo(({ onClick, darkTheme }) => (
+  <IconButton onClick={onClick} src={darkTheme ? EditIconLight : EditIcon} alt="Edit" />
+));
 
 export const CancelButton = React.memo(({ onClick }) => <IconButton onClick={onClick} src={CancelIcon} alt="Cancel" />);
 

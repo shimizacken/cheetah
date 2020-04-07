@@ -70,6 +70,7 @@ export const ChatMessage = ({
               updateMessageClick={updateMessageClick}
               deleteMessageClick={() => deleteMessageClick(messageId)}
               isEdit={isEdit}
+              darkTheme={darkTheme}
             />
           )}
         </div>
