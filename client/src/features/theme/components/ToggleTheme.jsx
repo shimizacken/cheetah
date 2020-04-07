@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ThemeTypes } from '../bll/themeTypes';
 import { toggleTheme } from '../state/actions';
@@ -26,4 +27,12 @@ export const ToggleTheme = ({ className }) => {
       <IconButton src={isDarkMode ? BulbOff : BulbOn} alt="Toggle theme" onClick={toggle} width={50} />
     </div>
   );
+};
+
+ToggleTheme.propTypes = {
+  className: PropTypes.string
+};
+
+ToggleTheme.defaultProps = {
+  className: undefined
 };
