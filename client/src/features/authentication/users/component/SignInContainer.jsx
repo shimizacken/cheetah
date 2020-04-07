@@ -46,7 +46,7 @@ export const SignInContainer = React.memo(() => {
           onChange={onChange}
           value={userName}
           className={styles['text-input']}
-          placeholder="Type name and hit the enter!"
+          placeholder="Type name and hit enter!"
         />
       </form>
     </div>
