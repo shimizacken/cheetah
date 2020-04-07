@@ -24,23 +24,16 @@ Clone the repo
 ```bash
 git clone https://github.com/shimizacken/cheetah.git
 ```
-then run the server:
+inside the repo folder run the following commands:
+run the server:
 ```bash
 cd server
-```
-```bash
 npm install
-```
-```bash
 npm start
 ```
 then run the client:
 ```bash
 cd client
-```
-```bash
 npm install
-```
-```bash
 npm start
 ```
