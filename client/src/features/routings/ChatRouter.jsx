@@ -10,7 +10,7 @@ import { ChatTabsContainer } from '../chat/components/ChatTabsContainer';
 export const ChatRouter = () => {
   return (
     <SignedInWrapper>
-      <MainHeader mode={HeaderDisplayMode.COLLAPSE} />
+      <MainHeader displayMode={HeaderDisplayMode.COLLAPSE} />
       <ChatTabsContainer />
       <Switch>
         <Route exact path="/chat" component={ChatContainer} />

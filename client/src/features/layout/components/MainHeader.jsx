@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import defaultLogo from '../../../assets/default-logo-2.png';
 import smallLogo from '../../../assets/small-logo.png';
 import { HeaderDisplayMode } from '../bll/headerDisplayMode';
@@ -7,8 +8,8 @@ import { Icon } from '../../../components/common/icon/Icon';
 import { ToggleTheme } from '../../theme';
 import styles from './MainHeader.module.scss';
 
-export const MainHeader = ({ mode }) => {
-  if (mode === HeaderDisplayMode.DEFAULT) {
+export const MainHeader = ({ displayMode }) => {
+  if (displayMode === HeaderDisplayMode.DEFAULT) {
     return <img src={defaultLogo} alt="Cheetah chat" />;
   }
 
@@ -21,4 +22,12 @@ export const MainHeader = ({ mode }) => {
       </div>
     </div>
   );
+};
+
+MainHeader.propTypes = {
+  displayMode: PropTypes.oneOf(Object.values(HeaderDisplayMode))
+};
+
+MainHeader.defaultProps = {
+  displayMode: HeaderDisplayMode.DEFAULT
 };

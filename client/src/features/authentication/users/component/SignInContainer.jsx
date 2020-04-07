@@ -39,7 +39,7 @@ export const SignInContainer = React.memo(() => {
   return (
     <div className={styles['sign-in-wrapper']}>
       <form onSubmit={onSubmit}>
-        <MainHeader mode={HeaderDisplayMode.DEFAULT} />
+        <MainHeader displayMode={HeaderDisplayMode.DEFAULT} />
         <TextInput
           type="submit"
           onChange={onChange}
