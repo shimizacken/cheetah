@@ -6,9 +6,9 @@ import { TextInputTypes } from '../../../../components/common/inputs/textInput/t
 import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
 import { CheckmarkButton, CancelButton } from '../messagePanel/EditButtons';
 import { EditMessagePanel } from '../messagePanel/EditMessagePanel';
-import { LinkPreview } from '../../../../components/common/linkPreview/LinkPreview';
-import styles from './ChatMessage.module.scss';
 import { messagePropTypes } from './messagePropTypes';
+import { MessageContentContainer } from './MessageContentContainer';
+import styles from './ChatMessage.module.scss';
 
 export const ChatMessage = ({
   message,
@@ -54,28 +54,13 @@ export const ChatMessage = ({
             className={styles['edit-text-input']}
           />
         ) : (
-          <div
-            className={classNames(
-              styles['content'],
-              isCurrentUser && styles['current-user-message'],
-              darkTheme && styles['dark']
-            )}
-          >
-            <div>{text}</div>
-            {linkPreview && (
-              <LinkPreview
-                title={linkPreview.title}
-                description={linkPreview.description}
-                imageUrl={linkPreview.image}
-                link={linkPreview.link}
-              />
-            )}
-            {edited && (
-              <div className={styles['edited']}>
-                <i>(edited)</i>
-              </div>
-            )}
-          </div>
+          <MessageContentContainer
+            text={text}
+            edited={edited}
+            linkPreview={linkPreview}
+            isCurrentUser={isCurrentUser}
+            darkTheme={darkTheme}
+          />
         )}
         <div className={styles['edit-panel']}>
           {isCurrentUser && !isEdit && (
