@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import { initChatWebSocket } from '../bll/network/messagesLoader';
 import { selectIsDarkMode } from '../../theme/state/themeSelectors';
-import { ChatMessagesContainer } from './ChatMessagesContainer';
-import styles from './ChatContainer.module.scss';
+import { ChatMessagesContainer } from './chatMessages/ChatMessagesContainer';
 import { MessageInput } from './chatMessage/MessageInput';
+import styles from './ChatContainer.module.scss';
 
 export const ChatContainer = () => {
   const isDarkMode = useSelector(selectIsDarkMode);
