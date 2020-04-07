@@ -6,6 +6,7 @@ import { MainHeader } from '../layout/components/MainHeader';
 import { HeaderDisplayMode } from '../layout/bll/headerDisplayMode';
 import { SignedInWrapper } from '../layout/components/SignedInWrapper';
 import { ChatTabsContainer } from '../chat/components/ChatTabsContainer';
+import { Routes } from './routes';
 
 export const ChatRouter = () => {
   return (
@@ -13,8 +14,8 @@ export const ChatRouter = () => {
       <MainHeader displayMode={HeaderDisplayMode.COLLAPSE} />
       <ChatTabsContainer />
       <Switch>
-        <Route exact path="/chat" component={ChatContainer} />
-        <Route exact path="/participants" component={ParticipantsContainer} />
+        <Route exact path={Routes.CHAT} component={ChatContainer} />
+        <Route exact path={Routes.PARTICIPANTS} component={ParticipantsContainer} />
       </Switch>
     </SignedInWrapper>
   );

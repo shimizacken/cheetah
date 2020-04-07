@@ -1,14 +1,16 @@
+import { Routes } from '../../routings/routes';
+
 export const buildChatTabs = (usersLength) => [
   {
     id: 1,
     text: `Participants (${usersLength})`,
-    url: '/participants',
+    url: Routes.PARTICIPANTS,
     selected: false
   },
   {
     id: 2,
     text: 'Chat',
-    url: '/chat',
+    url: Routes.CHAT,
     selected: true
   }
 ];
