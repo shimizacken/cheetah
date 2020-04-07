@@ -1,8 +1,6 @@
 # 🔥 Cheetah chat 🐆
 
-<div style='text-align: center'>
-    ![Default view](assets/screenshots/default-logo.png "Default view")
-</div>
+![Default view](assets/screenshots/default-logo.png)
 
 ### Tech
 - ✅ `react`
