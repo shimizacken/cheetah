@@ -31,9 +31,16 @@ export const MessageContentContainer = ({ text, edited, linkPreview, isCurrentUs
   );
 };
 
+const linkPreviewPropTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  link: PropTypes.string
+};
+
 MessageContentContainer.propTypes = {
   text: PropTypes.string,
-  linkPreview: PropTypes.shape({}),
+  linkPreview: PropTypes.shape(linkPreviewPropTypes),
   isCurrentUser: PropTypes.bool,
   edited: PropTypes.bool,
   darkTheme: PropTypes.bool
