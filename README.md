@@ -39,4 +39,4 @@ npm install
 npm start
 ```
 
-![Default view](src/assets/screenshots/cheetah-preview.gif "Default view")
+![Default view](assets/screenshots/cheetah-preview.gif "Default view")
