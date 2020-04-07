@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import isEmpty from 'lodash/isEmpty';
 import { ChatMessages } from './ChatMessages';
 import { selectMessages } from '../state/chatMessagesSelectors';
 import styles from './ChatMessagesContainer.module.scss';
