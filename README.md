@@ -38,3 +38,5 @@ cd client
 npm install
 npm start
 ```
+
+![Default view](src/assets/screenshots/cheetah-preview.gif "Default view")
