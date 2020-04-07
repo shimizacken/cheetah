@@ -1,6 +1,8 @@
+const { urlify, preview } = require('./linkPreview');
+
 const WebSocket = require('ws');
 const { v4: uuidv4 } = require('uuid');
- 
+
 const clients = [];
 
 const wss = new WebSocket.Server({ port: 9500 });
@@ -26,13 +28,41 @@ wss.on('connection', ws => {
     if (message) {
 
         const incomingMessage = JSON.parse(message);
-        console.log('clients', clients.length);
-        if (incomingMessage) {
-            chatMessages[incomingMessage.id] = incomingMessage;
-            const json = JSON.stringify(chatMessages);
+        let json;
 
-            for (let i = 0; i < clients.length; i++) {
-                clients[i].send(json);
+        if (incomingMessage) {
+
+            const url = urlify(incomingMessage.text);
+
+            if (url) {
+                
+                preview(url).then(function(res) {
+                    
+                    
+                    incomingMessage['linkPreview'] = {
+                        title: res.title,
+                        image: res.image,
+                        description: res.description,
+                        link: res.link
+                    };
+                    
+                    chatMessages[incomingMessage.id] = incomingMessage;
+                    
+                    json = JSON.stringify(chatMessages);
+
+                    for (let i = 0; i < clients.length; i++) {
+                        clients[i].send(json);
+                    }
+                });
+            }
+            else {
+
+                chatMessages[incomingMessage.id] = incomingMessage;
+                json = JSON.stringify(chatMessages);
+
+                for (let i = 0; i < clients.length; i++) {
+                    clients[i].send(json);
+                }
             }
         }
     }
