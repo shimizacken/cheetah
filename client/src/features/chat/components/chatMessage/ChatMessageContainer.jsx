@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { ChatMessage } from './ChatMessage';
-import { selectUser, selectIsCurrentUser } from '../../authentication/users/state/usersSelectors';
+import { selectUser, selectIsCurrentUser } from '../../../authentication/users/state/usersSelectors';
+import { deleteMessage, editMessage } from '../../state/chatMessagesActions';
+import { selectIsDarkMode } from '../../../theme/state/themeSelectors';
+import { messagePropTypes } from './messagePropTypes';
 import { DeletedMessage } from './DeletedMessage';
-import { deleteMessage, editMessage } from '../state/chatMessagesActions';
-import { selectIsDarkMode } from '../../theme/state/themeSelectors';
-import { ThemeTypes } from '../../theme/bll/themeTypes';
 
-export const ChatMessageContainer = React.memo(({ message }) => {
+export const ChatMessageContainer = ({ message }) => {
   const dispatch = useDispatch();
   const { id: messageId, userRef, text, date, deleted, edited } = message;
 
@@ -45,4 +46,8 @@ export const ChatMessageContainer = React.memo(({ message }) => {
       darkTheme={isDarkMode}
     />
   );
-});
+};
+
+ChatMessageContainer.propTypes = {
+  message: PropTypes.shape(messagePropTypes).isRequired
+};

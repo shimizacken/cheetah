@@ -1,0 +1,11 @@
+.messages {
+  overflow-y: scroll;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px 25px;
+}
+
+.bottom-element {
+  position: relative;
+  bottom: 0;
+}

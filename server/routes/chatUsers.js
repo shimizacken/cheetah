@@ -2,7 +2,7 @@ const WebSocket = require('ws');
  
 const clients = [];
 
-const wss = new WebSocket.Server({ port: 9501 });
+const server = new WebSocket.Server({ port: 9501 });
 
 const cheetahBot = {
   id: '99f9eac4-0de4-4733-868f-b18610adc6b0',
@@ -15,8 +15,14 @@ const chatUsers = {
   [cheetahBot.id]: cheetahBot
 };
 
-wss.on('connection', ws => {
-  clients.push(ws);
+server.on('request', request => {
+  console.log('request', request);
+});
+
+server.on('connection', ws => {
+  // console.log('connection', ws);
+
+  const clientIndex = clients.push(ws) - 1;
 
   ws.on('message', message => {
     
@@ -25,6 +31,7 @@ wss.on('connection', ws => {
         const incomingUser = JSON.parse(message);
 
         if (incomingUser) {
+            console.log('chatUsers', chatUsers.length);
             chatUsers[incomingUser.id] = incomingUser;
             const json = JSON.stringify(chatUsers);
 
@@ -36,11 +43,14 @@ wss.on('connection', ws => {
     
   });
   
-  ws.send(JSON.stringify(chatUsers));
-});
-
-wss.on('close', function(connection) {
+  ws.on('close', function(connection) {
     // close connections
+    // console.log('close', connection);
+    clients.splice(clientIndex, 1);
+  });
+
+  ws.send(JSON.stringify(chatUsers));
+
 });
 
-module.exports = wss;
+module.exports = server;

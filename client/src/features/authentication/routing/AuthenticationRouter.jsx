@@ -1,21 +1,22 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectShouldDisplayChat } from '../users/state/usersSelectors';
+import { selectIsUserOnline } from '../users/state/usersSelectors';
+import { Routes } from '../../routings/routes';
 
 export const AuthenticationRouter = () => {
-  const isUserOnline = useSelector(selectShouldDisplayChat);
+  const isUserOnline = useSelector(selectIsUserOnline);
 
   return (
     <Switch>
       <Route
-        path="/"
+        path={Routes.DEFAULT}
         children={() => {
           if (!isUserOnline) {
-            return <Redirect to="/sign-in" />;
+            return <Redirect to={Routes.SIGN_IN} />;
           }
 
-          return <Redirect to="/chat" />;
+          return <Redirect to={Routes.CHAT} />;
         }}
       />
     </Switch>

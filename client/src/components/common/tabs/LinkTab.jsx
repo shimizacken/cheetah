@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import styles from './Tabs.module.scss';
@@ -22,3 +23,16 @@ export const LinkTab = React.memo(({ text, id, url, selected, onClick, darkTheme
     </Link>
   );
 });
+
+LinkTab.propTypes = {
+  text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
+  selected: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  darkTheme: PropTypes.bool
+};
+
+LinkTab.defaultProps = {
+  darkTheme: false
+};

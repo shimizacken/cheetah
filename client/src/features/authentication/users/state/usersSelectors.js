@@ -6,7 +6,7 @@ export const selectCurrentUserId = (state) => state?.authentication?.currentUser
 
 export const selectUser = (userId) => createSelector(selectUsers, (users) => users?.[userId]);
 
-export const selectShouldDisplayChat = createSelector(
+export const selectIsUserOnline = createSelector(
   selectUsers,
   selectCurrentUserId,
   (users, currentUserId) => users?.[currentUserId] !== undefined

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { MessageHeader } from './MessageHeader';
 import styles from './ChatMessage.module.scss';
@@ -13,3 +14,16 @@ export const DeletedMessage = React.memo(({ userName, active, isCurrentUser, dat
     </div>
   </div>
 ));
+
+DeletedMessage.propTypes = {
+  userName: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
+  isCurrentUser: PropTypes.bool.isRequired,
+  date: PropTypes.string.isRequired,
+  darkTheme: PropTypes.bool.isRequired
+};
+
+DeletedMessage.defaultProps = {
+  active: true,
+  darkTheme: false
+};

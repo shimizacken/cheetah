@@ -1,7 +1,8 @@
-export const buildMessage = (id, text, date, edited, deleted) => ({
+export const buildNewMessage = (id, text, userRef, date) => ({
   id,
   text,
+  userRef,
   date,
-  edited,
-  deleted
+  edited: false,
+  deleted: false
 });
