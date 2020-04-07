@@ -12,13 +12,6 @@
     background-color: $dark-background;
   }
 
-  .messages {
-    overflow-y: scroll;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 10px 25px;
-  }
-
   .text-input-wrapper {
     text-align: center;
     padding: 25px;
