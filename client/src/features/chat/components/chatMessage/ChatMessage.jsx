@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { MessageHeader } from './MessageHeader';
-import { EditMessagePanel } from './EditMessagePanel';
-import { TextInputTypes } from '../../../components/common/inputs/textInput/textInputTypes';
-import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
-import { CancelButton, CheckmarkButton } from './EditButtons';
+import { EditMessagePanel } from '../EditMessagePanel';
+import { TextInputTypes } from '../../../../components/common/inputs/textInput/textInputTypes';
+import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
+import { CancelButton, CheckmarkButton } from '../EditButtons';
 import styles from './ChatMessage.module.scss';
 
 export const ChatMessage = ({

@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { TextInput } from '../../../components/common/inputs/textInput/TextInput';
-import { publishMessage } from '../state/chatMessagesActions';
-import { selectCurrentUserId } from '../../authentication/users/state/usersSelectors';
-import { isTextEmpty } from '../../../services/utils/textUtils';
-import { buildNewMessage } from '../bll/buildMessage';
-import styles from './ChatContainer.module.scss';
+import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
+import { publishMessage } from '../../state/chatMessagesActions';
+import { selectCurrentUserId } from '../../../authentication/users/state/usersSelectors';
+import { isTextEmpty } from '../../../../services/utils/textUtils';
+import { buildNewMessage } from '../../bll/buildMessage';
+import styles from '../ChatContainer.module.scss';
 
 export const MessageInput = () => {
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import { initChatWebSocket } from '../bll/network/messagesLoader';
 import { selectIsDarkMode } from '../../theme/state/themeSelectors';
 import { ChatMessagesContainer } from './ChatMessagesContainer';
 import styles from './ChatContainer.module.scss';
-import { MessageInput } from './MessageInput';
+import { MessageInput } from './chatMessage/MessageInput';
 
 export const ChatContainer = () => {
   const isDarkMode = useSelector(selectIsDarkMode);

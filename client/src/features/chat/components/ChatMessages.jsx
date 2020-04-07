@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { ChatMessageContainer } from './ChatMessageContainer';
-import { messagePropTypes } from './messagePropTypes';
+import { messagePropTypes } from './chatMessage/messagePropTypes';
 
 export const ChatMessages = ({ messages }) => {
   if (isEmpty(messages)) {
