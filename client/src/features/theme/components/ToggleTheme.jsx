@@ -14,13 +14,7 @@ export const ToggleTheme = ({ className }) => {
   const dispatch = useDispatch();
   const isDarkMode = useSelector(selectIsDarkMode);
 
-  const toggle = (e) => {
-    if (isDarkMode) {
-      dispatch(toggleTheme(ThemeTypes.light));
-    } else {
-      dispatch(toggleTheme(ThemeTypes.dark));
-    }
-  };
+  const toggle = () => (isDarkMode ? dispatch(toggleTheme(ThemeTypes.light)) : dispatch(toggleTheme(ThemeTypes.dark)));
 
   return (
     <div className={classNames(styles['root-toggle-theme'], className)}>
