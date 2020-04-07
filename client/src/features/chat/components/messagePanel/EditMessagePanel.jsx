@@ -6,7 +6,7 @@ import styles from './EditMessagePanel.module.scss';
 export const EditMessagePanel = ({ messageId, deleteMessageClick, editMessage, darkTheme }) => {
   return (
     <div className={styles['edit-message-wrapper']}>
-      <EditButton onClick={() => editMessage()} />
+      <EditButton onClick={() => editMessage()} darkTheme={darkTheme} />
       <DeleteButton onClick={() => deleteMessageClick(messageId)} darkTheme={darkTheme} />
     </div>
   );
