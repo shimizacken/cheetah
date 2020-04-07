@@ -13,19 +13,7 @@ function urlify(text) {
   return result;
 }
 
-function preview (url) {
-    return linkPreview(url);
-    // .then(resp => {
-    //     console.log(resp);
-    //     /* { image: 'https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png',
-    //         title: 'npm | build amazing things',
-    //         description: '',
-    //         link: 'http://npmjs.com' } */
-    //     // Note that '' is used when value of any detail of the link is not available
-    // }).catch(catchErr => {
-    //     console.log(catchErr);
-    // });
-}
+const preview = (url) => linkPreview(url);
 
 exports.urlify = urlify;
 exports.preview = preview;

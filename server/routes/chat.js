@@ -37,7 +37,7 @@ wss.on('connection', ws => {
             if (url) {
                 
                 preview(url).then(function(res) {
-                    
+                    console.log(res);
                     
                     incomingMessage['linkPreview'] = {
                         title: res.title,
@@ -47,7 +47,7 @@ wss.on('connection', ws => {
                     };
                     
                     chatMessages[incomingMessage.id] = incomingMessage;
-                    
+
                     json = JSON.stringify(chatMessages);
 
                     for (let i = 0; i < clients.length; i++) {

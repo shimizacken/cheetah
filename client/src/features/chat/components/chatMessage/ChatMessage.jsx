@@ -7,19 +7,18 @@ import { TextInput } from '../../../../components/common/inputs/textInput/TextIn
 import { CheckmarkButton, CancelButton } from '../messagePanel/EditButtons';
 import { EditMessagePanel } from '../messagePanel/EditMessagePanel';
 import styles from './ChatMessage.module.scss';
+import { LinkPreview } from '../../../../components/common/linkPreview/LinkPreview';
 
 export const ChatMessage = ({
+  message,
   userName,
-  text,
-  date,
   isCurrentUser,
   deleteMessageClick,
-  messageId,
   updateMessage,
   active,
-  edited,
   darkTheme
 }) => {
+  const { id: messageId, text, date, edited, linkPreview } = message;
   const [isEdit, setIsEdit] = useState(false);
   const [editedText, setEditedText] = useState(text);
 
@@ -61,6 +60,14 @@ export const ChatMessage = ({
             )}
           >
             <div>{text}</div>
+            {linkPreview && (
+              <LinkPreview
+                title={linkPreview.title}
+                description={linkPreview.description}
+                imageUrl={linkPreview.image}
+                link={linkPreview.link}
+              />
+            )}
             {edited && (
               <div className={styles['edited']}>
                 <i>(edited)</i>
