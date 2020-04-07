@@ -9,6 +9,7 @@ import { ChatMessages } from './ChatMessages';
 import { publishMessage } from '../state/chatMessagesActions';
 import { selectCurrentUserId } from '../../authentication/users/state/usersSelectors';
 import { selectIsDarkMode } from '../../theme/state/themeSelectors';
+import { isTextEmpty } from '../../../services/utils/textUtils';
 import styles from './ChatContainer.module.scss';
 
 export const ChatContainer = () => {
@@ -25,14 +26,12 @@ export const ChatContainer = () => {
     inputEl.current.focus();
   };
 
-  const onChange = (e) => {
-    setText(e.target.value);
-  };
+  const onChange = (e) => setText(e.target.value);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (text.trim() === '') {
+    if (isTextEmpty(text)) {
       return;
     }
 

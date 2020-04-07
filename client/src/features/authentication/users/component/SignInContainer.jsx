@@ -5,6 +5,7 @@ import { TextInput } from '../../../../components/common/inputs/textInput/TextIn
 import { setCurrentUserId, postUser } from '../state/usersActions';
 import { MainHeader } from '../../../layout/components/MainHeader';
 import { HeaderDisplayMode } from '../../../layout/bll/headerDisplayMode';
+import { isTextEmpty } from '../../../../services/utils/textUtils';
 import styles from './SignInContainer.module.scss';
 
 export const SignInContainer = React.memo(() => {
@@ -18,7 +19,7 @@ export const SignInContainer = React.memo(() => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (userName.trim() === '') {
+    if (isTextEmpty(userName) {
       return;
     }
 
