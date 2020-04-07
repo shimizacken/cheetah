@@ -1,15 +1,46 @@
-# Cheetah chat
+# 🔥 Cheetah chat 🐆
 
 ![Default view](assets/screenshots/default-logo.png "Default view")
 
 ### Tech
-- ✅ React/Redux
+- ✅ `react`
+- ✅ `redux`
+- ✅ `react-router-dom`
+- ✅ `jest`
 
-### Features
-- ✅ Implement a chat service, that supports at least 2 different devices at the same time
-- ✅ You should be able to edit your own messages. Other participants
-- ✅ should see that the message was edited
-- ✅ You should be able to delete your own messages. Other participants
-- ✅ should see that the message was deleted
-- ✅ List of active participants to show who is in the session right now
+### Task features
+- ✅ Supports at least 2 different devices at the same time
+- ✅ User able to edit own messages. Other participants see edited messages
+- ✅ User able to delete own messages. Other participants see deleted messages
+- ✅ List of active participants that in the session right now
 - ✅ Style the chat to look like the provided design
+
+### Additional features
+- ✅ Realtime updates
+- ✅ Changing themes
+
+### Usage
+Clone the repo
+```bash
+git clone https://github.com/shimizacken/cheetah.git
+```
+then run the server:
+```bash
+cd server
+```
+```bash
+npm install
+```
+```bash
+npm start
+```
+then run the client:
+```bash
+cd client
+```
+```bash
+npm install
+```
+```bash
+npm start
+```
