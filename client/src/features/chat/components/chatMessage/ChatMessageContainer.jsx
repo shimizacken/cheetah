@@ -10,7 +10,7 @@ import { DeletedMessage } from './DeletedMessage';
 
 export const ChatMessageContainer = ({ message }) => {
   const dispatch = useDispatch();
-  const { id: messageId, userRef, text, date, deleted, edited } = message;
+  const { userRef, date, deleted } = message;
 
   const user = useSelector(selectUser(userRef));
   const isCurrentUser = useSelector(selectIsCurrentUser(userRef));
@@ -34,15 +34,13 @@ export const ChatMessageContainer = ({ message }) => {
 
   return (
     <ChatMessage
-      text={text}
+      message={message}
       userName={user?.userName}
       active={user?.active}
       date={formattedDate}
       isCurrentUser={isCurrentUser}
-      messageId={messageId}
       deleteMessageClick={deleteMessageClick}
       updateMessage={updateMessageClick}
-      edited={edited}
       darkTheme={isDarkMode}
     />
   );

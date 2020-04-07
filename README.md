@@ -18,6 +18,7 @@
 ### Additional features
 - ✅ Realtime updates
 - ✅ Changing themes
+- ✅ Preview website page
 
 ### Usage
 Clone the repo

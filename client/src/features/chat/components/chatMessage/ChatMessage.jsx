@@ -6,20 +6,21 @@ import { TextInputTypes } from '../../../../components/common/inputs/textInput/t
 import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
 import { CheckmarkButton, CancelButton } from '../messagePanel/EditButtons';
 import { EditMessagePanel } from '../messagePanel/EditMessagePanel';
+import { LinkPreview } from '../../../../components/common/linkPreview/LinkPreview';
 import styles from './ChatMessage.module.scss';
+import { messagePropTypes } from './messagePropTypes';
 
 export const ChatMessage = ({
+  message,
   userName,
-  text,
-  date,
   isCurrentUser,
   deleteMessageClick,
-  messageId,
   updateMessage,
+  date,
   active,
-  edited,
   darkTheme
 }) => {
+  const { id: messageId, text, edited, linkPreview } = message;
   const [isEdit, setIsEdit] = useState(false);
   const [editedText, setEditedText] = useState(text);
 
@@ -61,6 +62,14 @@ export const ChatMessage = ({
             )}
           >
             <div>{text}</div>
+            {linkPreview && (
+              <LinkPreview
+                title={linkPreview.title}
+                description={linkPreview.description}
+                imageUrl={linkPreview.image}
+                link={linkPreview.link}
+              />
+            )}
             {edited && (
               <div className={styles['edited']}>
                 <i>(edited)</i>
@@ -91,20 +100,15 @@ export const ChatMessage = ({
 };
 
 ChatMessage.propTypes = {
+  message: PropTypes.shape(messagePropTypes),
   userName: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
   isCurrentUser: PropTypes.bool.isRequired,
   deleteMessageClick: PropTypes.func.isRequired,
-  messageId: PropTypes.string.isRequired,
   updateMessage: PropTypes.func.isRequired,
-  active: PropTypes.bool,
-  edited: PropTypes.bool,
+  date: PropTypes.string.isRequired,
   darkTheme: PropTypes.bool
 };
 
 ChatMessage.defaultProps = {
-  active: true,
-  edited: false,
   darkTheme: false
 };

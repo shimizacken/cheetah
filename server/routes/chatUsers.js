@@ -31,7 +31,7 @@ server.on('connection', ws => {
         const incomingUser = JSON.parse(message);
 
         if (incomingUser) {
-            console.log('chatUsers', chatUsers.length);
+
             chatUsers[incomingUser.id] = incomingUser;
             const json = JSON.stringify(chatUsers);
 
