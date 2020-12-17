@@ -1,4 +1,6 @@
-import { ThemeTypes } from '../features/theme/bll/themeTypes';
+export const themeTypes = ['light', 'dark'] as const;
+
+export type ThemeTypes = typeof themeTypes[number];
 
 export type ChatMessage = {
   id: string;

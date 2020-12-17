@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { selectUsers } from '../../authentication/users/state/usersSelectors';
 import { selectCurrentTheme } from '../../theme/state/themeSelectors';
 import { Tabs } from '../../../components/common/tabs/Tabs';
-import { ThemeTypes } from '../../theme/bll/themeTypes';
 import { buildChatTabs } from '../bll/buildChatTabs';
 import { clickChatTab } from '../bll/clickChatTab';
 
@@ -25,5 +24,7 @@ export const ChatTabsContainer = () => {
     setTabs(newTabs);
   }, [usersLength]);
 
-  return <Tabs tabs={tabs} onClick={tabClick} darkTheme={themeType === ThemeTypes.dark} />;
+  return (
+    <Tabs tabs={tabs} onClick={tabClick} darkTheme={themeType === 'dark'} />
+  );
 };

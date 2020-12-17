@@ -1,8 +1,11 @@
+import { AnyAction } from 'redux';
 import { TOGGLE_THEME } from './constants';
-import { ThemeTypes } from '../bll/themeTypes';
 import { getPersistedTheme } from '../bll/getPersistedTheme';
+import { themeTypes, ThemeTypes } from '../../../state/store.types';
 
-const themeType = (state = ThemeTypes.dark, action) => {
+type ThemeState = ThemeTypes;
+
+const themeType = (state: ThemeState = 'dark', action: AnyAction) => {
   if (action.type === TOGGLE_THEME) {
     return action.themeType;
   }
@@ -10,10 +13,13 @@ const themeType = (state = ThemeTypes.dark, action) => {
   return state;
 };
 
-export const themeTypeEnhancer = (state, action) => {
+export const themeTypeEnhancer = (state: ThemeState, action: AnyAction) => {
   const persistedThemeType = getPersistedTheme(window?.localStorage);
 
-  if (persistedThemeType && Object.values(ThemeTypes).includes(persistedThemeType)) {
+  if (
+    persistedThemeType &&
+    Object.values(themeTypes).includes(persistedThemeType)
+  ) {
     return persistedThemeType;
   }
 
