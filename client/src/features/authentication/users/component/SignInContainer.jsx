@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
 import { setCurrentUserId, postUser } from '../state/usersActions';
 import { MainHeader } from '../../../layout/components/MainHeader';
-import { HeaderDisplayMode } from '../../../layout/bll/headerDisplayMode';
 import { isTextEmpty } from '../../../../services';
 import styles from './SignInContainer.module.scss';
 
@@ -40,7 +39,7 @@ export const SignInContainer = React.memo(() => {
   return (
     <div className={styles['sign-in-wrapper']}>
       <form onSubmit={onSubmit}>
-        <MainHeader displayMode={HeaderDisplayMode.DEFAULT} />
+        <MainHeader displayMode={'default'} />
         <TextInput
           type="submit"
           onChange={onChange}

@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import { ChatContainer } from '../chat/components/ChatContainer';
 import { ParticipantsContainer } from '../participants/components/ParticipantsContainer';
 import { MainHeader } from '../layout/components/MainHeader';
-import { HeaderDisplayMode } from '../layout/bll/headerDisplayMode';
 import { SignedInWrapper } from '../layout/components/SignedInWrapper';
 import { ChatTabsContainer } from '../chat/components/ChatTabsContainer';
 import { Routes } from './routes';
@@ -11,11 +10,15 @@ import { Routes } from './routes';
 export const ChatRouter = () => {
   return (
     <SignedInWrapper>
-      <MainHeader displayMode={HeaderDisplayMode.COLLAPSE} />
+      <MainHeader displayMode={'collapse'} />
       <ChatTabsContainer />
       <Switch>
         <Route exact path={Routes.CHAT} component={ChatContainer} />
-        <Route exact path={Routes.PARTICIPANTS} component={ParticipantsContainer} />
+        <Route
+          exact
+          path={Routes.PARTICIPANTS}
+          component={ParticipantsContainer}
+        />
       </Switch>
     </SignedInWrapper>
   );
