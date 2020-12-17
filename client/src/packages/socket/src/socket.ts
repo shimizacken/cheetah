@@ -3,7 +3,10 @@ export type Socket = {
   getSocket: () => WebSocket;
 };
 
-export const createSocket = (url: string, protocols?: string | string[]): Socket => {
+export const createSocket = (
+  url: string,
+  protocols?: string | string[]
+): Socket => {
   const socket = new WebSocket(url, protocols);
 
   socket.onerror = (error: Event) => {

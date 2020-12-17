@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { initChatWebSocket, closeChatWebSocket } from './features/chat/bll/network/messagesLoader';
+import {
+  initChatWebSocket,
+  closeChatWebSocket
+} from './features/chat/bll/network/messagesLoader';
 import { initChatUsers } from './features/authentication/users/bll/network/usersLoader';
 import { MainLayout } from './features/layout/components/MainLayout';
 import { RootRouter } from './features/routings/RootRouter';
