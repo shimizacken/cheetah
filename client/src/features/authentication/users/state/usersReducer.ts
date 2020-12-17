@@ -1,10 +1,19 @@
-import { combineReducers } from 'redux';
+import { AnyAction, combineReducers } from 'redux';
 import produce from 'immer';
-import { ADD_USER, SET_USER_ACTIVE, SET_CURRENT_USER_ID, SIGN_OUT } from './usersConstants';
+import {
+  ADD_USER,
+  SET_USER_ACTIVE,
+  SET_CURRENT_USER_ID,
+  SIGN_OUT
+} from './usersConstants';
+import type { Authentication } from '../../../../state/store.types';
 
-const usersInitialState = {};
+const usersInitialState: Authentication = {
+  users: {},
+  currentUserId: ''
+};
 
-export const users = (state = usersInitialState, action) => {
+export const users = (state = usersInitialState, action: AnyAction) => {
   if (action.type === ADD_USER) {
     return {
       ...state,
@@ -14,7 +23,8 @@ export const users = (state = usersInitialState, action) => {
 
   if (action.type === SET_USER_ACTIVE) {
     const nextState = produce(state, (draftState) => {
-      draftState[action.userId].active = !draftState[action.userId].active;
+      draftState.users[action.userId].active = !draftState.users[action.userId]
+        .active;
 
       return draftState;
     });
@@ -27,7 +37,10 @@ export const users = (state = usersInitialState, action) => {
 
 const currentUserIdInitialState = '';
 
-export const currentUserId = (state = currentUserIdInitialState, action) => {
+export const currentUserId = (
+  state = currentUserIdInitialState,
+  action: AnyAction
+) => {
   if (action.type === SET_CURRENT_USER_ID) {
     return action.currentUserId;
   }
