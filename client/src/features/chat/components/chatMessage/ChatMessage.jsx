@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { MessageHeader } from './MessageHeader';
-import { TextInputTypes } from '../../../../components/common/inputs/textInput/textInputTypes';
-import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
 import { CheckmarkButton, CancelButton } from '../messagePanel/EditButtons';
 import { EditMessagePanel } from '../messagePanel/EditMessagePanel';
 import { messagePropTypes } from './messagePropTypes';
 import { MessageContentContainer } from './MessageContentContainer';
+import { TextArea } from '../../../../components/common/inputs/textInput/TextArea';
 import styles from './ChatMessage.module.scss';
 
 export const ChatMessage = ({
@@ -43,12 +42,16 @@ export const ChatMessage = ({
   };
 
   return (
-    <div className={classNames(styles['message-root-wrapper'], isCurrentUser && styles['current-user-message'])}>
+    <div
+      className={classNames(
+        styles['message-root-wrapper'],
+        isCurrentUser && styles['current-user-message']
+      )}
+    >
       <div className={styles['message-wrapper']}>
         <MessageHeader userName={userName} active={active} date={date} />
         {isEdit ? (
-          <TextInput
-            inputType={TextInputTypes.MULTILINE}
+          <TextArea
             onChange={editChange}
             value={editedText}
             className={styles['edit-text-input']}

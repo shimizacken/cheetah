@@ -46,7 +46,6 @@ export const MessageInput = () => {
       <form onSubmit={onSubmit}>
         <TextInput
           ref={inputEl}
-          type="submit"
           onChange={onChange}
           value={text}
           placeholder="Type a message!"

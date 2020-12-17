@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
@@ -10,6 +10,7 @@ import styles from './SignInContainer.module.scss';
 export const SignInContainer = React.memo(() => {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState('');
+  const userId = useRef(uuidv4());
 
   const onChange = (e) => {
     setUserName(e.target.value);
@@ -21,8 +22,6 @@ export const SignInContainer = React.memo(() => {
     if (isTextEmpty(userName)) {
       return;
     }
-
-    const userId = uuidv4();
 
     dispatch(setCurrentUserId(userId));
 
@@ -41,7 +40,6 @@ export const SignInContainer = React.memo(() => {
       <form onSubmit={onSubmit}>
         <MainHeader displayMode={'default'} />
         <TextInput
-          type="submit"
           onChange={onChange}
           value={userName}
           className={styles['text-input']}
