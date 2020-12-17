@@ -1,8 +1,15 @@
+import { Middleware } from 'redux';
 import { getWS } from '../bll/network/messagesLoader';
-import { PUBLISH_MESSAGE, DELETE_MESSAGE, EDIT_MESSAGE } from './chatMessagesConstants';
+import {
+  PUBLISH_MESSAGE,
+  DELETE_MESSAGE,
+  EDIT_MESSAGE
+} from './chatMessagesConstants';
 import { selectMessage } from './chatMessagesSelectors';
 
-export const chatMessagesMiddleware = ({ getState }) => (next) => (action) => {
+export const chatMessagesMiddleware: Middleware = ({ getState }) => (next) => (
+  action
+) => {
   if (action.type === PUBLISH_MESSAGE || action.type === EDIT_MESSAGE) {
     getWS().send(JSON.stringify(action.message));
   }

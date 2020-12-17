@@ -18,11 +18,11 @@ export type User = {
   active: boolean;
 };
 
-interface Chat {
-  [key: string]: ChatMessage;
-}
+export type ChatMessages = {
+  messages: { [key: string]: ChatMessage };
+};
 
-interface Authentication {
+export interface Authentication {
   users: {
     [key: string]: User;
   };
@@ -30,7 +30,7 @@ interface Authentication {
 }
 
 export interface State {
-  readonly chat: Chat;
+  readonly chat: ChatMessages;
   readonly authentication: Authentication;
   readonly themeType: ThemeTypes;
 }
