@@ -7,7 +7,7 @@ import { selectIsDarkMode } from '../../../theme/state/themeSelectors';
 import { signOut } from '../state/usersActions';
 import { selectCurrentUserId } from '../state/usersSelectors';
 
-export const SignOutContainer = React.memo(() => {
+export const SignOutContainer: React.FC = React.memo(() => {
   const dispatch = useDispatch();
   const isDarkMode = useSelector(selectIsDarkMode);
   const currentUserId = useSelector(selectCurrentUserId);
@@ -16,5 +16,12 @@ export const SignOutContainer = React.memo(() => {
     dispatch(signOut(currentUserId));
   };
 
-  return <IconButton src={isDarkMode ? SignOffNight : SignOffDay} alt="Sign off" width={50} onClick={signOff} />;
+  return (
+    <IconButton
+      src={isDarkMode ? SignOffNight : SignOffDay}
+      alt="Sign off"
+      width={50}
+      onClick={signOff}
+    />
+  );
 });

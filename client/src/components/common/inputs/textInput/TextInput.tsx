@@ -6,11 +6,19 @@ import styles from './TextInput.module.scss';
 export const TextInput = React.forwardRef<
   HTMLInputElement,
   Omit<React.ComponentPropsWithRef<'input'>, ''> & {
-    inputType: TextInputTypes;
+    inputType?: TextInputTypes;
   }
 >(
   (
-    { value, onChange, disabled, placeholder, className, inputType, ...props },
+    {
+      value,
+      onChange,
+      disabled,
+      placeholder,
+      className,
+      inputType = TextInputTypes.TEXT,
+      ...props
+    },
     ref
   ) => (
     <input
