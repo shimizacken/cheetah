@@ -1,8 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Dot.module.scss';
+import { DotColors } from '../../../features/authentication/users/component/ActiveUserDot';
 
-const Dot: React.FC<{ color: string; className?: string }> = ({
+const Dot: React.FC<{ color: DotColors; className?: string }> = ({
   color,
   className
 }) => (
