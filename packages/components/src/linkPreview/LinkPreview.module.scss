@@ -1,0 +1,29 @@
+.link {
+  display: inline-block;
+}
+
+.link-preview-wrapper {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+
+  .title {
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .description {
+    margin-top: 10px;
+    text-decoration: none;
+  }
+
+  .image-wrapper {
+    width: 150px;
+    padding-right: 15px;
+  }
+
+  .image {
+    width: 100%;
+  }
+}
