@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
 import { publishMessage } from '../../state/chatMessagesActions';
 import { selectCurrentUserId } from '../../../authentication/users/state/usersSelectors';
-import { isTextEmpty } from '../../../../services/utils/textUtils';
+import { isTextEmpty } from '../../../../services';
 import { buildNewMessage } from '../../bll/buildMessage';
 import styles from '../ChatContainer.module.scss';
 
@@ -44,7 +44,13 @@ export const MessageInput = () => {
   return (
     <div className={styles['text-input-wrapper']}>
       <form onSubmit={onSubmit}>
-        <TextInput ref={inputEl} type="submit" onChange={onChange} value={text} placeholder="Type a message!" />
+        <TextInput
+          ref={inputEl}
+          type="submit"
+          onChange={onChange}
+          value={text}
+          placeholder="Type a message!"
+        />
       </form>
     </div>
   );

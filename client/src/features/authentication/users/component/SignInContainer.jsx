@@ -5,7 +5,7 @@ import { TextInput } from '../../../../components/common/inputs/textInput/TextIn
 import { setCurrentUserId, postUser } from '../state/usersActions';
 import { MainHeader } from '../../../layout/components/MainHeader';
 import { HeaderDisplayMode } from '../../../layout/bll/headerDisplayMode';
-import { isTextEmpty } from '../../../../services/utils/textUtils';
+import { isTextEmpty } from '../../../../services';
 import styles from './SignInContainer.module.scss';
 
 export const SignInContainer = React.memo(() => {
