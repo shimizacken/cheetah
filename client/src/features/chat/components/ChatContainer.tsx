@@ -7,13 +7,18 @@ import { ChatMessagesContainer } from './chatMessages/ChatMessagesContainer';
 import { MessageInput } from './chatMessage/MessageInput';
 import styles from './ChatContainer.module.scss';
 
-export const ChatContainer = () => {
+export const ChatContainer: React.FC = () => {
   const isDarkMode = useSelector(selectIsDarkMode);
 
   useEffect(() => initChatWebSocket(), []);
 
   return (
-    <div className={classNames(styles['chat-wrapper'], isDarkMode && styles['dark'])}>
+    <div
+      className={classNames(
+        styles['chat-wrapper'],
+        isDarkMode && styles['dark']
+      )}
+    >
       <ChatMessagesContainer />
       <MessageInput />
     </div>
