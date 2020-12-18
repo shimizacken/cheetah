@@ -1,6 +1,7 @@
-import { Routes } from '../../routings/routes';
+import {Routes} from '../../routings/routes';
+import {Tab} from './clickChatTab';
 
-export const buildChatTabs = (usersCount: number) => [
+export const buildChatTabs = (usersCount: number): Tab[] => [
   {
     id: 1,
     text: `Participants (${usersCount})`,

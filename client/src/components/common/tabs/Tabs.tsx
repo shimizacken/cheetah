@@ -6,7 +6,7 @@ import {Tab} from '../../../features/chat/bll/clickChatTab';
 
 export const Tabs: React.FC<{
   tabs: Tab[];
-  onClick: () => void;
+  onClick: (tabId: number) => void;
   darkTheme: boolean;
 }> = ({tabs, onClick, darkTheme}) => (
   <div
