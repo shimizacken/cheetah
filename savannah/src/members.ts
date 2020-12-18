@@ -19,8 +19,10 @@ export const authenticationHandler = (
 ): ChatMembersEvent => {
   if (member.active) {
     members[member.id] = member;
+    console.log("🚀 ~ member - added", member);
   } else {
     delete members[member.id];
+    console.log("🚀 ~ member - remove", member);
   }
 
   const allMembers: ChatMembersEvent = {

@@ -36,9 +36,11 @@ export const chatMessagesHandler = (
       };
 
       chatMessages[chatMessageEvent.id] = chatMessageEvent.message;
+      console.log("🚀 ~ chat-message - added", newChatMessage);
     });
   } else {
     chatMessages[chatMessageEvent.id] = chatMessageEvent.message;
+    console.log("🚀 ~ chat-message - added", newChatMessage);
   }
 
   return {
