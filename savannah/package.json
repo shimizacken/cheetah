@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "link-preview-node": "^1.0.7",
     "ws": "^7.4.1"
   },
   "devDependencies": {

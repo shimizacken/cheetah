@@ -10,11 +10,11 @@ export type Members = {
 };
 
 export const eventType = [
-  "authentication",
-  "chat-message",
-  "handshake",
-  "member",
-  "members",
+  'authentication',
+  'chat-message',
+  'handshake',
+  'member',
+  'members'
 ] as const;
 
 export type EventType = typeof eventType[number];

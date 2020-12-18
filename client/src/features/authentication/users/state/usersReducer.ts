@@ -1,4 +1,4 @@
-import { AnyAction, combineReducers } from 'redux';
+import {AnyAction, combineReducers} from 'redux';
 import produce from 'immer';
 import {
   ADD_USER,
@@ -6,7 +6,7 @@ import {
   SET_CURRENT_USER_ID,
   SIGN_OUT
 } from './usersConstants';
-import type { Authentication } from '../../../../state/store.types';
+import type {Authentication} from '../../../../state/store.types';
 
 const usersInitialState: Authentication = {
   users: {},
@@ -14,6 +14,10 @@ const usersInitialState: Authentication = {
 };
 
 export const users = (state = usersInitialState, action: AnyAction) => {
+  if (action.type === 'UPDATE_MEMBERS') {
+    return action.members;
+  }
+
   if (action.type === ADD_USER) {
     return {
       ...state,

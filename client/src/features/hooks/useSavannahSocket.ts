@@ -1,5 +1,12 @@
 import {useEffect} from 'react';
 import {createSocket} from '../../packages/socket';
+import {
+  SavannahEvents,
+  MembersEvent
+} from '../../packages/socket/savannah.types';
+import {store} from '../../state';
+import {addUser} from '../authentication';
+import {updateMembers} from '../authentication/users/state/usersActions';
 
 export const useSavannahSocket = () => {
   useEffect(() => {
@@ -27,7 +34,15 @@ export const useSavannahSocket = () => {
 
     socket.onmessage = (e: MessageEvent) => {
       console.log(e.data);
+      const savannahEvents: SavannahEvents = JSON.parse(e.data);
+
       // dispatch message event
+      switch (savannahEvents.type) {
+        case 'members':
+          const d = savannahEvents as MembersEvent;
+          store.dispatch(updateMembers(d.members));
+          break;
+      }
     };
 
     // return socket.close;

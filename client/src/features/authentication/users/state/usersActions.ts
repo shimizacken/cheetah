@@ -1,4 +1,5 @@
-import { User } from '../../../../state/store.types';
+import {Members} from '../../../../packages/socket/savannah.types';
+import {User} from '../../../../state/store.types';
 import {
   ADD_USER,
   REMOVE_USER,
@@ -16,6 +17,11 @@ export const postUser = (user: User) => ({
 export const addUser = (user: User) => ({
   type: ADD_USER,
   user
+});
+
+export const updateMembers = (members: Members) => ({
+  type: 'UPDATE_MEMBERS',
+  members
 });
 
 export const removeUser = (userId: string) => ({
