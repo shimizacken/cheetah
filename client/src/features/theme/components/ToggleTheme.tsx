@@ -1,15 +1,14 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
-import { toggleTheme } from '../state/actions';
-import { IconButton } from '../../../components/common/button/IconButton';
+import {toggleTheme} from '../state/actions';
+import {IconButton} from '../../../components/common/button/IconButton';
 import BulbOn from '../../../assets/bulb-on.png';
 import BulbOff from '../../../assets/bulb-off.png';
-import { selectIsDarkMode } from '../state/themeSelectors';
+import {selectIsDarkMode} from '../state/themeSelectors';
 import styles from './ToggleTheme.module.scss';
 
-export const ToggleTheme = ({ className }) => {
+export const ToggleTheme: React.FC<{className?: string}> = ({className}) => {
   const dispatch = useDispatch();
   const isDarkMode = useSelector(selectIsDarkMode);
 
@@ -26,12 +25,4 @@ export const ToggleTheme = ({ className }) => {
       />
     </div>
   );
-};
-
-ToggleTheme.propTypes = {
-  className: PropTypes.string
-};
-
-ToggleTheme.defaultProps = {
-  className: undefined
 };
