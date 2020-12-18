@@ -72,7 +72,7 @@ export interface ChatMembersEvent {
   members: ChatMembers;
 }
 
-export interface ChatMessageEvent extends EventCore {
+export interface ChatMessageEvent {
   type: 'chat-message';
   message: ChatMessage;
 }

@@ -1,5 +1,5 @@
 import produce from 'immer';
-import { AnyAction } from 'redux';
+import {AnyAction} from 'redux';
 import {
   PUBLISH_MESSAGE,
   EDIT_MESSAGE,
@@ -7,11 +7,9 @@ import {
   SET_MESSAGES
 } from './chatMessagesConstants';
 
-import type { ChatMessages } from '../../../state/store.types';
+import type {ChatMessages} from '../../../state/store.types';
 
-const MessagesInitialState: ChatMessages = {
-  messages: {}
-};
+const MessagesInitialState = {};
 
 export const messages = (state = MessagesInitialState, action: AnyAction) => {
   if (action.type === SET_MESSAGES) {
@@ -35,15 +33,15 @@ export const messages = (state = MessagesInitialState, action: AnyAction) => {
     return nextState;
   }
 
-  if (action.type === DELETE_MESSAGE) {
-    const nextState = produce(state, (draftState) => {
-      draftState.messages[action.messageId].deleted = true;
+  // if (action.type === DELETE_MESSAGE) {
+  //   const nextState = produce(state, (draftState) => {
+  //     draftState[action.messageId].deleted = true;
 
-      return draftState;
-    });
+  //     return draftState;
+  //   });
 
-    return nextState;
-  }
+  //   return nextState;
+  // }
 
   return state;
 };
