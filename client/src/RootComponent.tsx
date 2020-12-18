@@ -19,9 +19,7 @@ export const RootComponent: React.FC = () => {
     initChatWebSocket();
     initChatUsers();
 
-    return () => {
-      closeChatWebSocket();
-    };
+    return closeChatWebSocket;
   }, []);
 
   return (
