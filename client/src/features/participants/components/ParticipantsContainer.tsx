@@ -14,7 +14,7 @@ export const ParticipantsContainer: React.FC = () => {
     <div
       className={classNames(
         styles['participants-wrapper'],
-        isDarkMode && styles['dark']
+        isDarkMode && styles.dark
       )}
     >
       {Object.values(users).map((user) => {

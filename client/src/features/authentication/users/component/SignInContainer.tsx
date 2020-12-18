@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {v4} from 'uuid';
 import {TextInput} from '../../../../components/common/inputs/textInput/TextInput';
@@ -10,7 +10,7 @@ import styles from './SignInContainer.module.scss';
 export const SignInContainer: React.FC = React.memo(() => {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState('');
-  const userId = useRef(v4());
+  const userId = v4();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(e.target.value);
@@ -23,11 +23,11 @@ export const SignInContainer: React.FC = React.memo(() => {
       return;
     }
 
-    dispatch(setCurrentUserId(userId.current));
+    dispatch(setCurrentUserId(userId));
 
     dispatch(
       postUser({
-        id: userId.current,
+        id: userId,
         userName,
         date: Date.now(),
         active: true
