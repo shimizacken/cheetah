@@ -8,13 +8,16 @@ const app = express();
 const server = http.createServer(app);
 
 //initialize the WebSocket server instance
-const wss = new WebSocket.Server({ server });
+const socket = new WebSocket.Server({ server });
 
-wss.on("connection", (ws: WebSocket) => {
+socket.on("connection", (ws: WebSocket) => {
   //connection is up, let's add a simple simple event
   ws.on("message", (message: string) => {
+    const incomingMessage = JSON.parse(message);
+
     //log the received message and send it back to the client
-    console.log("received: %s", message);
+    console.log("received: %s", incomingMessage.type);
+
     ws.send(`Hello, you sent -> ${message}`);
   });
 

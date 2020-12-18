@@ -11,15 +11,17 @@ import {AuthenticationRouter} from './features/authentication/routing/Authentica
 import {Theme} from './features/theme';
 import {selectIsUserOnline} from './features/authentication';
 import {ToggleThemeStickyContainer} from './features/theme/components/ToggleThemeStickyContainer';
+import {createSocket} from './packages/socket';
+import {useSavannahSocket} from './features/hooks/useSavannahSocket';
 
 export const RootComponent: React.FC = () => {
   const isUserOnline = useSelector(selectIsUserOnline);
 
-  useEffect(() => {
-    initChatWebSocket();
-    initChatUsers();
+  useSavannahSocket();
 
-    return closeChatWebSocket;
+  useEffect(() => {
+    // initChatWebSocket();
+    // initChatUsers();
   }, []);
 
   return (

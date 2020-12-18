@@ -19,5 +19,5 @@ export const createSocket = (
 
   const getSocket = () => socket;
 
-  return { socket, getSocket };
+  return {socket, getSocket};
 };
