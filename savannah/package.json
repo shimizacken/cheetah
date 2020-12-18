@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "tsc && node ./dist/server/app.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "ws": "^7.4.1"
