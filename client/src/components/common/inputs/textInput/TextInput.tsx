@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { TextInputTypes } from './textInputTypes';
+import {TextInputTypes} from './textInputTypes';
 import styles from './TextInput.module.scss';
 
 export const TextInput = React.forwardRef<

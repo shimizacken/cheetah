@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, {useState} from 'react';
 import classNames from 'classnames';
-import { MessageHeader } from './MessageHeader';
-import { CheckmarkButton, CancelButton } from '../messagePanel/EditButtons';
-import { EditMessagePanel } from '../messagePanel/EditMessagePanel';
-import { messagePropTypes } from './messagePropTypes';
-import { MessageContentContainer } from './MessageContentContainer';
-import { TextArea } from '../../../../components/common/inputs/textInput/TextArea';
+import {MessageHeader} from './MessageHeader';
+import {CheckmarkButton, CancelButton} from '../messagePanel/EditButtons';
+import {EditMessagePanel} from '../messagePanel/EditMessagePanel';
+import {MessageContentContainer} from './MessageContentContainer';
+import {TextArea} from '../../../../components/common/inputs/textInput/TextArea';
+import {ChatMessage as ChatMessageType} from '../../../../state/store.types';
 import styles from './ChatMessage.module.scss';
 
-export const ChatMessage = ({
+export const ChatMessage: React.FC<{
+  message: ChatMessageType;
+  userName: string;
+  isCurrentUser: boolean;
+  deleteMessageClick: (id: string) => void;
+  updateMessage: (editedText: string) => void;
+  date: string;
+  active: boolean;
+  darkTheme: boolean;
+}> = ({
   message,
   userName,
   isCurrentUser,
@@ -17,13 +25,14 @@ export const ChatMessage = ({
   updateMessage,
   date,
   active,
-  darkTheme
+  darkTheme = false
 }) => {
-  const { id: messageId, text, edited, linkPreview } = message;
+  const {id: messageId, text, edited, linkPreview} = message;
   const [isEdit, setIsEdit] = useState(false);
   const [editedText, setEditedText] = useState(text);
 
-  const editChange = (e) => setEditedText(e.target.value);
+  const editChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+    setEditedText(e.target.value);
 
   const editMessage = () => setIsEdit(true);
 
@@ -80,24 +89,10 @@ export const ChatMessage = ({
         {isEdit && (
           <div className={styles['edit-panel-active']}>
             <CancelButton onClick={cancelEdit} />
-            <CheckmarkButton onClick={() => updateMessageClick(messageId)} />
+            <CheckmarkButton onClick={updateMessageClick} />
           </div>
         )}
       </div>
     </div>
   );
-};
-
-ChatMessage.propTypes = {
-  message: PropTypes.shape(messagePropTypes),
-  userName: PropTypes.string.isRequired,
-  isCurrentUser: PropTypes.bool.isRequired,
-  deleteMessageClick: PropTypes.func.isRequired,
-  updateMessage: PropTypes.func.isRequired,
-  date: PropTypes.string.isRequired,
-  darkTheme: PropTypes.bool
-};
-
-ChatMessage.defaultProps = {
-  darkTheme: false
 };

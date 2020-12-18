@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { v4 } from 'uuid';
-import { TextInput } from '../../../../components/common/inputs/textInput/TextInput';
-import { setCurrentUserId, postUser } from '../state/usersActions';
-import { MainHeader } from '../../../layout/components/MainHeader';
-import { isTextEmpty } from '../../../../services';
+import React, {useRef, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {v4} from 'uuid';
+import {TextInput} from '../../../../components/common/inputs/textInput/TextInput';
+import {setCurrentUserId, postUser} from '../state/usersActions';
+import {MainHeader} from '../../../layout/components/MainHeader';
+import {isTextEmpty} from '../../../../services';
 import styles from './SignInContainer.module.scss';
 
 export const SignInContainer: React.FC = React.memo(() => {

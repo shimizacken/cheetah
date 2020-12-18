@@ -9,6 +9,7 @@ export type ChatMessage = {
   date: number;
   edited: boolean;
   deleted: boolean;
+  linkPreview?: string;
 };
 
 export type User = {
@@ -19,7 +20,7 @@ export type User = {
 };
 
 export type ChatMessages = {
-  messages: { [key: string]: ChatMessage };
+  messages: {[key: string]: ChatMessage};
 };
 
 export interface Authentication {
