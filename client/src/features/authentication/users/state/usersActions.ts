@@ -1,4 +1,7 @@
-import {Members} from '../../../../packages/socket/savannah.types';
+import {
+  ChatMember,
+  ChatMembers
+} from '../../../../packages/socket/savannah.types';
 import {User} from '../../../../state/store.types';
 import {
   ADD_USER,
@@ -14,12 +17,12 @@ export const postUser = (user: User) => ({
   user
 });
 
-export const addUser = (user: User) => ({
+export const addUser = (user: ChatMember) => ({
   type: ADD_USER,
   user
 });
 
-export const updateMembers = (members: Members) => ({
+export const updateMembers = (members: ChatMembers) => ({
   type: 'UPDATE_MEMBERS',
   members
 });

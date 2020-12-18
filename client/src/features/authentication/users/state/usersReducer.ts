@@ -8,10 +8,7 @@ import {
 } from './usersConstants';
 import type {Authentication} from '../../../../state/store.types';
 
-const usersInitialState: Authentication = {
-  users: {},
-  currentUserId: ''
-};
+const usersInitialState = {};
 
 export const users = (state = usersInitialState, action: AnyAction) => {
   if (action.type === 'UPDATE_MEMBERS') {
@@ -23,17 +20,6 @@ export const users = (state = usersInitialState, action: AnyAction) => {
       ...state,
       ...action.user
     };
-  }
-
-  if (action.type === SET_USER_ACTIVE) {
-    const nextState = produce(state, (draftState) => {
-      draftState.users[action.userId].active = !draftState.users[action.userId]
-        .active;
-
-      return draftState;
-    });
-
-    return nextState;
   }
 
   return state;
