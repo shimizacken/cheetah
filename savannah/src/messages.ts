@@ -1,5 +1,6 @@
 import { ChatMessage } from "./chat.types";
 import { ChatMessageEvent } from "./event.types";
+import { log } from "./logger";
 const { urlify, preview } = require("./linkPreview");
 const { v4 } = require("uuid");
 
@@ -37,10 +38,11 @@ export const chatMessagesHandler = (
 
       chatMessages[chatMessageEvent.id] = chatMessageEvent.message;
       console.log("🚀 ~ chat-message - added", newChatMessage);
+      log("chat-message", `added - ${newChatMessage.id}`);
     });
   } else {
     chatMessages[chatMessageEvent.id] = chatMessageEvent.message;
-    console.log("🚀 ~ chat-message - added", newChatMessage);
+    log("chat-message", `added - ${newChatMessage.id}`);
   }
 
   return {

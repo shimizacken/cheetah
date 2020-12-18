@@ -3,6 +3,7 @@ import * as http from "http";
 import * as WebSocket from "ws";
 import { SavannahEvents } from "./src/event.types";
 import { eventHandler } from "./src/eventHanlder";
+import { log } from "./src/logger";
 const { v4 } = require("uuid");
 
 const app = express();
@@ -22,7 +23,7 @@ socket.on("connection", (ws: WebSocket) => {
   const socketRef = v4();
   sockets[socketRef] = ws;
 
-  console.log("🚀 ~ socket added", socketRef, Object.values(sockets).length);
+  log("socket", `${socketRef}, ${Object.values(sockets).length}`);
 
   ws.on("message", (message: string) => {
     const incomingMessage: SavannahEvents = JSON.parse(message);
@@ -39,8 +40,8 @@ socket.on("connection", (ws: WebSocket) => {
 
   ws.on("close", () => {
     delete sockets[socketRef];
-    console.log("🚀 ~ socket closed", socketRef);
-    console.log("🚀 ~ sockets", Object.values(sockets).length);
+    log("socket", socketRef);
+    log("socket", Object.values(sockets).length);
   });
 });
 

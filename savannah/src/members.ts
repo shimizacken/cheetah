@@ -1,6 +1,6 @@
 import type { ChatMember, ChatMembers } from "./chat.types";
 import { AuthenticationEvent, ChatMembersEvent } from "./event.types";
-
+import { log } from "./logger";
 const { v4 } = require("uuid");
 
 const cheetahBot: ChatMember = {
@@ -19,10 +19,10 @@ export const authenticationHandler = (
 ): ChatMembersEvent => {
   if (member.active) {
     members[member.id] = member;
-    console.log("🚀 ~ member - added", member);
+    log("chat-member", `added - ${member.id}`);
   } else {
     delete members[member.id];
-    console.log("🚀 ~ member - remove", member);
+    log("chat-member", `remove - ${member.id}`);
   }
 
   const allMembers: ChatMembersEvent = {
