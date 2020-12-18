@@ -1,12 +1,15 @@
 import React from 'react';
 import defaultLogo from '../../../assets/default-logo-2.png';
 import smallLogo from '../../../assets/small-logo.png';
-import { SignOutContainer } from '../../authentication/users/component/SignOutContainer';
-import { Icon } from '../../../components/common/icon/Icon';
-import { ToggleTheme } from '../../theme';
+import {SignOutContainer} from '../../authentication/users/component/SignOutContainer';
+import {Icon} from '../../../components/common/icon/Icon';
+import {ToggleTheme} from '../../theme';
 import styles from './MainHeader.module.scss';
+import {HeaderDisplayMode} from '../bll/headerDisplayMode';
 
-export const MainHeader = ({ displayMode }) => {
+export const MainHeader: React.FC<{displayMode: HeaderDisplayMode}> = ({
+  displayMode
+}) => {
   if (displayMode === 'default') {
     return <img src={defaultLogo} alt="Cheetah chat" />;
   }
