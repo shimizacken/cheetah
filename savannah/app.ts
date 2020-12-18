@@ -1,6 +1,8 @@
 import * as express from "express";
 import * as http from "http";
 import * as WebSocket from "ws";
+import { authenticationHandler } from "./src/members";
+import { MemberEvent, SavannahEvents } from "./src/message.types";
 
 const app = express();
 
@@ -11,14 +13,27 @@ const server = http.createServer(app);
 const socket = new WebSocket.Server({ server });
 
 socket.on("connection", (ws: WebSocket) => {
-  //connection is up, let's add a simple simple event
   ws.on("message", (message: string) => {
-    const incomingMessage = JSON.parse(message);
+    const incomingMessage: SavannahEvents = JSON.parse(message);
+    let resultMessage;
 
-    //log the received message and send it back to the client
-    console.log("received: %s", incomingMessage.type);
+    switch (incomingMessage.type) {
+      case "handshake":
+        break;
+      case "authentication":
+        resultMessage = authenticationHandler(incomingMessage as MemberEvent);
+        break;
+      case "chat-message":
+        break;
+    }
 
-    ws.send(`Hello, you sent -> ${message}`);
+    if (resultMessage) {
+      ws.send(JSON.stringify(resultMessage));
+      console.log(
+        "🚀 ~ file: app.ts ~ line 39 ~ ws.on ~ resultMessage",
+        resultMessage
+      );
+    }
   });
 
   //send immediately a feedback to the incoming connection

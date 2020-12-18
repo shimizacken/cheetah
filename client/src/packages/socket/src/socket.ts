@@ -1,23 +1,27 @@
-export type Socket = {
-  socket: WebSocket;
-  getSocket: () => WebSocket;
-};
+let currentSocket: WebSocket;
 
 export const createSocket = (
   url: string,
   protocols?: string | string[]
-): Socket => {
-  const socket = new WebSocket(url, protocols);
+): WebSocket => {
+  if (!currentSocket) {
+    currentSocket = new WebSocket(url, protocols);
+  }
 
-  socket.onerror = (error: Event) => {
+  currentSocket.onerror = (error: Event) => {
     console.log(`WebSocket error: ${error}`);
   };
 
-  socket.onclose = (e: CloseEvent) => {
+  currentSocket.onclose = (e: CloseEvent) => {
     console.log('socket error', e);
   };
 
-  const getSocket = () => socket;
+  return currentSocket;
+};
 
-  return {socket, getSocket};
+export const getSocket = () => {
+  if (!currentSocket) {
+    throw new Error('Socket closed');
+  }
+  return currentSocket;
 };
