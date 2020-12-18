@@ -1,25 +1,30 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
-import { ChatMessage } from './ChatMessage';
-import { selectUser, selectIsCurrentUser } from '../../../authentication/users/state/usersSelectors';
-import { deleteMessage, editMessage } from '../../state/chatMessagesActions';
-import { selectIsDarkMode } from '../../../theme/state/themeSelectors';
-import { messagePropTypes } from './messagePropTypes';
-import { DeletedMessage } from './DeletedMessage';
+import {useSelector, useDispatch} from 'react-redux';
+import {ChatMessage} from './ChatMessage';
+import {
+  selectUser,
+  selectIsCurrentUser
+} from '../../../authentication/users/state/usersSelectors';
+import {deleteMessage, editMessage} from '../../state/chatMessagesActions';
+import {selectIsDarkMode} from '../../../theme/state/themeSelectors';
+import {DeletedMessage} from './DeletedMessage';
+import type {ChatMessage as ChatMessageType} from '../../../../state/store.types';
 
-export const ChatMessageContainer = ({ message }) => {
+export const ChatMessageContainer: React.FC<{message: ChatMessageType}> = ({
+  message
+}) => {
   const dispatch = useDispatch();
-  const { userRef, date, deleted } = message;
+  const {userRef, date, deleted} = message;
 
   const user = useSelector(selectUser(userRef));
   const isCurrentUser = useSelector(selectIsCurrentUser(userRef));
   const isDarkMode = useSelector(selectIsDarkMode);
   const formattedDate = new Date(date).toLocaleTimeString();
 
-  const deleteMessageClick = (messageId) => dispatch(deleteMessage(messageId));
+  const deleteMessageClick = (messageId: string) =>
+    dispatch(deleteMessage(messageId));
 
-  const updateMessageClick = (editedText) =>
+  const updateMessageClick = (editedText: string) =>
     dispatch(
       editMessage({
         ...message,
@@ -35,6 +40,7 @@ export const ChatMessageContainer = ({ message }) => {
         isCurrentUser={isCurrentUser}
         date={formattedDate}
         active={user?.active}
+        darkTheme={isDarkMode}
       />
     );
   }
@@ -51,8 +57,4 @@ export const ChatMessageContainer = ({ message }) => {
       darkTheme={isDarkMode}
     />
   );
-};
-
-ChatMessageContainer.propTypes = {
-  message: PropTypes.shape(messagePropTypes).isRequired
 };

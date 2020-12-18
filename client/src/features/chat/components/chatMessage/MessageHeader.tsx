@@ -1,8 +1,12 @@
 import React from 'react';
-import { ActiveUserDot } from '../../../authentication/users/component/ActiveUserDot';
+import {ActiveUserDot} from '../../../authentication/users/component/ActiveUserDot';
 import styles from './ChatMessage.module.scss';
 
-const MessageHeader: React.FC<{userName: string; active: boolean; date: string;}> = (({ userName, active, date }) => (
+const MessageHeader: React.FC<{
+  userName: string;
+  active: boolean;
+  date: string;
+}> = ({userName, active, date}) => (
   <div className={styles.header}>
     <span className={styles['user-name']}>
       <ActiveUserDot active={active} /> <span>{userName}</span>
@@ -10,7 +14,6 @@ const MessageHeader: React.FC<{userName: string; active: boolean; date: string;}
     <span className={styles['date']}>{date}</span>
   </div>
 );
-
 
 const memoized = React.memo(MessageHeader);
 

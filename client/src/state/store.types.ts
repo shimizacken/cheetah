@@ -2,6 +2,13 @@ export const themeTypes = ['light', 'dark'] as const;
 
 export type ThemeTypes = typeof themeTypes[number];
 
+export type LinkPreview = {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+};
+
 export type ChatMessage = {
   id: string;
   text: string;
@@ -9,7 +16,7 @@ export type ChatMessage = {
   date: number;
   edited: boolean;
   deleted: boolean;
-  linkPreview?: string;
+  linkPreview?: LinkPreview;
 };
 
 export type User = {

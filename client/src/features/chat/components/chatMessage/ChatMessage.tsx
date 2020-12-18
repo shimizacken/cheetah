@@ -77,11 +77,9 @@ export const ChatMessage: React.FC<{
         <div className={styles['edit-panel']}>
           {isCurrentUser && !isEdit && (
             <EditMessagePanel
+              messageId={messageId}
               editMessage={editMessage}
-              cancelEdit={cancelEdit}
-              updateMessageClick={updateMessageClick}
               deleteMessageClick={() => deleteMessageClick(messageId)}
-              isEdit={isEdit}
               darkTheme={darkTheme}
             />
           )}
