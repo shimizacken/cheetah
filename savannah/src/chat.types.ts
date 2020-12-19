@@ -31,3 +31,11 @@ export interface ChatMessage {
 export type ChatMessages = {
   [key: string]: ChatMessage;
 };
+
+export interface ChatRoom {
+  id: Guid;
+  name: string;
+  public: boolean;
+  maxMembers: number;
+  createDate: number;
+}

@@ -38,7 +38,8 @@ export const eventType = [
   'handshake',
   'chat-member',
   'chat-members',
-  'socket'
+  'socket',
+  'member-typing'
 ] as const;
 
 export type EventType = typeof eventType[number];
