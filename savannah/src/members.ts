@@ -1,5 +1,9 @@
 import type {ChatMember, ChatMembers} from './chat.types';
-import {AuthenticationEvent, ChatMembersEvent} from './event.types';
+import {
+  AuthenticationEvent,
+  ChatMemberEvent,
+  ChatMembersEvent
+} from './event.types';
 import {log} from './logger';
 const {v4} = require('uuid');
 
@@ -14,8 +18,8 @@ const members: ChatMembers = {
   [cheetahBot.id]: cheetahBot
 };
 
-export const authenticationHandler = (
-  member: AuthenticationEvent
+export const chatMembersHandler = (
+  member: ChatMemberEvent
 ): ChatMembersEvent => {
   if (member.active) {
     members[member.id] = member;
