@@ -1,4 +1,4 @@
-import {HandshakeEvent} from './event.types';
+import type {HandshakeEvent} from '../../client/src/packages/socket/savannah.types';
 import {log} from '../../client/src/packages/logger';
 
 export const handshakeHandler = (): HandshakeEvent => {

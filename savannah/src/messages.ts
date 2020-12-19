@@ -1,8 +1,11 @@
-import {ChatMessage} from './chat.types';
-import {ChatMessageEvent, ChatMessagesEvent} from './event.types';
+import {v4} from 'uuid';
 import {log} from '../../client/src/packages/logger';
+import type {
+  ChatMessage,
+  ChatMessageEvent,
+  ChatMessagesEvent
+} from '../../client/src/packages/socket/savannah.types';
 const {urlify, preview} = require('./linkPreview');
-const {v4} = require('uuid');
 
 const welcomeMessage = {
   id: v4(),
@@ -36,18 +39,17 @@ export const chatMessagesHandler = (
         link: res.link
       };
 
-      chatMessages[chatMessageEvent.id] = chatMessageEvent.message;
+      chatMessages[chatMessageEvent.message.id] = chatMessageEvent.message;
       console.log('🚀 ~ chat-message - added', newChatMessage);
       log('chat-message', `added - ${newChatMessage.id}`);
     });
   } else {
-    chatMessages[chatMessageEvent.id] = chatMessageEvent.message;
+    chatMessages[chatMessageEvent.message.id] = chatMessageEvent.message;
     log('chat-message', `added - ${newChatMessage.id}`);
   }
 
   return {
     type: 'chat-message',
-    id: v4(),
     message: newChatMessage
   };
 };

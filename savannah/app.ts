@@ -1,10 +1,11 @@
 import * as express from 'express';
 import * as http from 'http';
 import * as WebSocket from 'ws';
-import {SavannahEvents} from './src/event.types';
+import {v4} from 'uuid';
+
 import {eventHandler} from './src/eventHandler';
 import {log} from '../client/src/packages/logger/src/logger';
-const {v4} = require('uuid');
+import type {SavannahEvents} from '../client/src/packages/socket/savannah.types';
 
 const app = express();
 

@@ -1,4 +1,4 @@
-import {EventType} from '../../../../../savannah/src/event.types';
+import {EventType} from '../../socket/savannah.types';
 
 export type LogLevel = 'info' | 'error' | 'warning';
 

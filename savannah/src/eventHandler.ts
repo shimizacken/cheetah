@@ -1,5 +1,5 @@
+import type {SavannahEvents} from '../../client/src/packages/socket/savannah.types';
 import {authenticationHandler} from './authenticationHandler';
-import {SavannahEvents} from './event.types';
 import {handshakeHandler} from './handshakeHandler';
 import {chatMembersHandler} from './members';
 import {chatMessagesHandler, getAllChatMessages} from './messages';
