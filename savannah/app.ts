@@ -3,7 +3,7 @@ import * as http from 'http';
 import * as WebSocket from 'ws';
 import {SavannahEvents} from './src/event.types';
 import {eventHandler} from './src/eventHandler';
-import {log} from './src/logger';
+import {log} from '../client/src/packages/logger/src/logger';
 const {v4} = require('uuid');
 
 const app = express();

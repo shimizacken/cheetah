@@ -1,10 +1,6 @@
 import type {ChatMember, ChatMembers} from './chat.types';
-import {
-  AuthenticationEvent,
-  ChatMemberEvent,
-  ChatMembersEvent
-} from './event.types';
-import {log} from './logger';
+import {ChatMemberEvent, ChatMembersEvent} from './event.types';
+import {log} from '../../client/src/packages/logger';
 const {v4} = require('uuid');
 
 const cheetahBot: ChatMember = {

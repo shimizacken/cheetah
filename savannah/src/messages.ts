@@ -1,6 +1,6 @@
 import {ChatMessage} from './chat.types';
 import {ChatMessageEvent, ChatMessagesEvent} from './event.types';
-import {log} from './logger';
+import {log} from '../../client/src/packages/logger';
 const {urlify, preview} = require('./linkPreview');
 const {v4} = require('uuid');
 

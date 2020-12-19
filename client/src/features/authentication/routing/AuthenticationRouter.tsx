@@ -10,10 +10,6 @@ export const AuthenticationRouter: React.FC = () => {
   const isAuthenticated = useSelector(
     (state: State) => state.authentication.authenticated
   );
-  console.log(
-    '🚀 ~ file: AuthenticationRouter.tsx ~ line 13 ~ isAuthenticated',
-    isAuthenticated
-  );
 
   return (
     <Switch>

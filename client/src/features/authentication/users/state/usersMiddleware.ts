@@ -12,8 +12,7 @@ export const usersMiddleware: Middleware = ({getState}: MiddlewareAPI) => (
 
     socket.send(
       JSON.stringify({
-        type: 'authentication',
-        ...action.user
+        type: 'authentication'
       })
     );
   }

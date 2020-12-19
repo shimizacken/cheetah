@@ -32,6 +32,14 @@ export type ChatMessages = {
   [key: string]: ChatMessage;
 };
 
+export interface ChatRoom {
+  id: Guid;
+  name: string;
+  public: boolean;
+  maxMembers: number;
+  createDate: number;
+}
+
 export const eventType = [
   'authentication',
   'chat-message',
@@ -59,8 +67,9 @@ export interface HandshakeEvent {
   type: 'handshake';
 }
 
-export interface ChatMemberEvent extends EventCore {
+export interface ChatMemberEvent {
   type: 'chat-member';
+  id: Guid;
   userName: string;
   date: number;
   active: boolean;
