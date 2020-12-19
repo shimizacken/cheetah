@@ -1,18 +1,13 @@
-import type {
-  ChatMessages,
-  Guid,
-  ChatMembers,
-  ChatMessage,
-} from "./chat.types";
+import type {ChatMessages, Guid, ChatMembers, ChatMessage} from './chat.types';
 
 export const eventType = [
-  "authentication",
-  "chat-message",
-  "handshake",
-  "chat-member",
-  "chat-members",
-  "socket",
-  "member-typing",
+  'authentication',
+  'chat-message',
+  'handshake',
+  'chat-member',
+  'chat-members',
+  'socket',
+  'member-typing'
 ] as const;
 
 export type EventType = typeof eventType[number];
@@ -22,37 +17,37 @@ export interface EventCore {
 }
 
 export interface AuthenticationEvent extends EventCore {
-  type: "authentication";
+  type: 'authentication';
   userName: string;
   date: number;
   active: boolean;
 }
 
 export interface HandshakeEvent extends EventCore {
-  type: "handshake";
+  type: 'handshake';
   ref: string;
   userName?: string;
 }
 
 export interface ChatMemberEvent extends EventCore {
-  type: "chat-member";
+  type: 'chat-member';
   userName: string;
   date: number;
   active: boolean;
 }
 
 export interface ChatMembersEvent {
-  type: "chat-members";
+  type: 'chat-members';
   members: ChatMembers;
 }
 
 export interface ChatMessageEvent extends EventCore {
-  type: "chat-message";
+  type: 'chat-message';
   message: ChatMessage;
 }
 
 export interface ChatMessagesEvent extends EventCore {
-  type: "chat-message";
+  type: 'chat-message';
   message: ChatMessages;
 }
 

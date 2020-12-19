@@ -1,10 +1,10 @@
-import * as express from "express";
-import * as http from "http";
-import * as WebSocket from "ws";
-import { SavannahEvents } from "./src/event.types";
-import { eventHandler } from "./src/eventHanlder";
-import { log } from "./src/logger";
-const { v4 } = require("uuid");
+import * as express from 'express';
+import * as http from 'http';
+import * as WebSocket from 'ws';
+import {SavannahEvents} from './src/event.types';
+import {eventHandler} from './src/eventHandler';
+import {log} from './src/logger';
+const {v4} = require('uuid');
 
 const app = express();
 
@@ -16,16 +16,16 @@ interface Sockets {
 }
 
 //initialize the WebSocket server instance
-const socket = new WebSocket.Server({ server });
+const socket = new WebSocket.Server({server});
 const sockets: Sockets = {};
 
-socket.on("connection", (ws: WebSocket) => {
+socket.on('connection', (ws: WebSocket) => {
   const socketRef = v4();
   sockets[socketRef] = ws;
 
-  log("socket", `${socketRef}, ${Object.values(sockets).length}`);
+  log('socket', `${socketRef}, ${Object.values(sockets).length}`);
 
-  ws.on("message", (message: string) => {
+  ws.on('message', (message: string) => {
     const incomingMessage: SavannahEvents = JSON.parse(message);
     const resultMessage = eventHandler(incomingMessage);
 
@@ -38,10 +38,10 @@ socket.on("connection", (ws: WebSocket) => {
     }
   });
 
-  ws.on("close", () => {
+  ws.on('close', () => {
     delete sockets[socketRef];
-    log("socket", socketRef);
-    log("socket", Object.values(sockets).length);
+    log('socket', socketRef);
+    log('socket', Object.values(sockets).length);
   });
 });
 

@@ -1,4 +1,4 @@
-const { linkPreview } = require(`link-preview-node`);
+const {linkPreview} = require(`link-preview-node`);
 
 function urlify(text: string) {
   var urlRegex = /(https?:\/\/[^\s]+)/gim;
