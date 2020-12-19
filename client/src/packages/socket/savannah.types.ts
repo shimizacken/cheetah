@@ -49,17 +49,14 @@ export interface EventCore {
   id: Guid;
 }
 
-export interface AuthenticationEvent extends EventCore {
+export interface AuthenticationEvent {
   type: 'authentication';
-  userName: string;
-  date: number;
-  active: boolean;
+  id: string;
+  authenticated?: boolean;
 }
 
-export interface HandshakeEvent extends EventCore {
+export interface HandshakeEvent {
   type: 'handshake';
-  ref: string;
-  userName?: string;
 }
 
 export interface ChatMemberEvent extends EventCore {

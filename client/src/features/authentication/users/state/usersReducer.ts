@@ -3,6 +3,7 @@ import {
   ADD_USER,
   // SET_USER_ACTIVE,
   SET_CURRENT_USER_ID,
+  SET_USER_AUTHENTICATED,
   SIGN_OUT
 } from './usersConstants';
 
@@ -40,7 +41,16 @@ export const currentUserId = (
   return state;
 };
 
+export const authenticated = (state = false, action: AnyAction) => {
+  if (action.type === SET_USER_AUTHENTICATED) {
+    return action.authenticated;
+  }
+
+  return state;
+};
+
 export const authentication = combineReducers({
   users,
-  currentUserId
+  currentUserId,
+  authenticated
 });

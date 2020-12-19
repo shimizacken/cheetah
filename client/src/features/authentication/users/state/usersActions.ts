@@ -1,4 +1,5 @@
 import {
+  AuthenticationEvent,
   ChatMember,
   ChatMembers
 } from '../../../../packages/socket/savannah.types';
@@ -9,8 +10,14 @@ import {
   SET_USER_ACTIVE,
   SET_CURRENT_USER_ID,
   POST_USER,
-  SIGN_OUT
+  SIGN_OUT,
+  SET_USER_AUTHENTICATED
 } from './usersConstants';
+
+export const setUserAuthenticated = (authenticated: AuthenticationEvent) => ({
+  type: SET_USER_AUTHENTICATED,
+  authenticated: authenticated.authenticated
+});
 
 export const postUser = (user: User) => ({
   type: POST_USER,

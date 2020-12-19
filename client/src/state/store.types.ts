@@ -16,6 +16,7 @@ export interface Authentication {
     [key: string]: User;
   };
   currentUserId: string;
+  authenticated: boolean;
 }
 
 export interface State {
