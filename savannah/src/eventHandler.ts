@@ -4,6 +4,10 @@ import {chatMessagesHandler, getAllChatMessages} from './messages';
 
 export const eventHandler = (event: SavannahEvents) => {
   switch (event.type) {
+    case 'handshake':
+      return {
+        type: 'handshake'
+      };
     case 'authentication':
       return authenticationHandler(event);
     case 'chat-message':

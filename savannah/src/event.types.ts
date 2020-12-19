@@ -24,10 +24,8 @@ export interface AuthenticationEvent extends EventCore {
   active: boolean;
 }
 
-export interface HandshakeEvent extends EventCore {
+export interface HandshakeEvent {
   type: 'handshake';
-  ref: string;
-  userName?: string;
 }
 
 export interface ChatMemberEvent extends EventCore {
