@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import {LinkPreview} from '../../../../components/common/linkPreview/LinkPreview';
-import type {LinkPreview as LinkPreviewType} from '../../../../state/store.types';
+import type {LinkPreview as LinkPreviewType} from '../../../../packages/socket/savannah.types';
 import styles from './ChatMessage.module.scss';
 
 export const MessageContentContainer: React.FC<{

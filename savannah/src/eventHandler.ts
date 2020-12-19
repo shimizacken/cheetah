@@ -1,6 +1,6 @@
 import {SavannahEvents} from './event.types';
 import {authenticationHandler} from './members';
-import {chatMessagesHandler} from './messages';
+import {chatMessagesHandler, getAllChatMessages} from './messages';
 
 export const eventHandler = (event: SavannahEvents) => {
   switch (event.type) {
@@ -8,6 +8,8 @@ export const eventHandler = (event: SavannahEvents) => {
       return authenticationHandler(event);
     case 'chat-message':
       return chatMessagesHandler(event);
+    case 'chat-messages':
+      return getAllChatMessages(event);
   }
 
   return null;

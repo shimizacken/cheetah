@@ -1,5 +1,5 @@
 import {ChatMessage} from './chat.types';
-import {ChatMessageEvent} from './event.types';
+import {ChatMessageEvent, ChatMessagesEvent} from './event.types';
 import {log} from './logger';
 const {urlify, preview} = require('./linkPreview');
 const {v4} = require('uuid');
@@ -51,3 +51,8 @@ export const chatMessagesHandler = (
     message: newChatMessage
   };
 };
+
+export const getAllChatMessages = (_chatMessageEvent: ChatMessagesEvent) => ({
+  type: 'chat-messages',
+  messages: chatMessages
+});

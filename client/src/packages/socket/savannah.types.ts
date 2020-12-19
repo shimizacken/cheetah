@@ -76,11 +76,13 @@ export interface ChatMembersEvent {
 
 export interface ChatMessageEvent {
   type: 'chat-message';
+  chatRef?: string;
   message: ChatMessage;
 }
 
 export interface ChatMessagesEvent {
   type: 'chat-messages';
+  chatRef?: string;
   messages: ChatMessages;
 }
 

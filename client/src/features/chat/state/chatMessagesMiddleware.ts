@@ -1,7 +1,6 @@
 import {Middleware} from 'redux';
 import {ChatMessageEvent} from '../../../packages/socket/savannah.types';
 import {getSocket} from '../../../packages/socket/src/socket';
-import {ChatMessage} from '../../../state/store.types';
 import {
   PUBLISH_MESSAGE,
   DELETE_MESSAGE,

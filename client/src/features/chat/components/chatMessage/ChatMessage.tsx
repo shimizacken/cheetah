@@ -5,7 +5,8 @@ import {CheckmarkButton, CancelButton} from '../messagePanel/EditButtons';
 import {EditMessagePanel} from '../messagePanel/EditMessagePanel';
 import {MessageContentContainer} from './MessageContentContainer';
 import {TextArea} from '../../../../components/common/inputs/textInput/TextArea';
-import {ChatMessage as ChatMessageType} from '../../../../state/store.types';
+import type {ChatMessage as ChatMessageType} from '../../../../packages/socket/savannah.types';
+
 import styles from './ChatMessage.module.scss';
 
 export const ChatMessage: React.FC<{

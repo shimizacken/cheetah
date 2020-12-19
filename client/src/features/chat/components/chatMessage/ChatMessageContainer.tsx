@@ -8,7 +8,7 @@ import {
 import {deleteMessage, editMessage} from '../../state/chatMessagesActions';
 import {selectIsDarkMode} from '../../../theme/state/themeSelectors';
 import {DeletedMessage} from './DeletedMessage';
-import type {ChatMessage as ChatMessageType} from '../../../../state/store.types';
+import type {ChatMessage as ChatMessageType} from '../../../../packages/socket/savannah.types';
 
 export const ChatMessageContainer: React.FC<{message: ChatMessageType}> = ({
   message

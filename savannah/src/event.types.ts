@@ -44,12 +44,14 @@ export interface ChatMembersEvent {
 
 export interface ChatMessageEvent extends EventCore {
   type: 'chat-message';
+  chatRef?: string;
   message: ChatMessage;
 }
 
-export interface ChatMessagesEvent extends EventCore {
-  type: 'chat-message';
-  message: ChatMessages;
+export interface ChatMessagesEvent {
+  type: 'chat-messages';
+  chatRef?: string;
+  messages?: ChatMessages;
 }
 
 export type SavannahEvents =
@@ -57,4 +59,5 @@ export type SavannahEvents =
   | HandshakeEvent
   | ChatMemberEvent
   | ChatMembersEvent
-  | ChatMessageEvent;
+  | ChatMessageEvent
+  | ChatMessagesEvent;

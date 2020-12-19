@@ -40,7 +40,7 @@ export const useSavannahSocket = () => {
           store.dispatch(addUser(savannahEvents));
           break;
         case 'chat-messages':
-          store.dispatch(setMessages(savannahEvents));
+          store.dispatch(setMessages(savannahEvents.messages));
           break;
       }
     };

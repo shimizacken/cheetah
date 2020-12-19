@@ -1,6 +1,6 @@
 import React from 'react';
 import {ChatMessageContainer} from '../chatMessage/ChatMessageContainer';
-import type {ChatMessage} from '../../../../state/store.types';
+import type {ChatMessage} from '../../../../packages/socket/savannah.types';
 
 export const ChatMessages: React.FC<{
   messages: {[key: string]: ChatMessage};

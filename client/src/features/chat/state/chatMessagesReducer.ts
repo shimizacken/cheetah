@@ -7,7 +7,7 @@ import {
   SET_MESSAGES
 } from './chatMessagesConstants';
 
-import type {ChatMessages} from '../../../state/store.types';
+import type {ChatMessages} from '../../../packages/socket/savannah.types';
 
 const MessagesInitialState = {};
 
@@ -25,7 +25,7 @@ export const messages = (state = MessagesInitialState, action: AnyAction) => {
 
   if (action.type === EDIT_MESSAGE) {
     const nextState = produce(state, (draftState: ChatMessages) => {
-      draftState.messages[action.message.id] = action.message;
+      draftState[action.message.id] = action.message;
 
       return draftState;
     });
@@ -33,15 +33,15 @@ export const messages = (state = MessagesInitialState, action: AnyAction) => {
     return nextState;
   }
 
-  // if (action.type === DELETE_MESSAGE) {
-  //   const nextState = produce(state, (draftState) => {
-  //     draftState[action.messageId].deleted = true;
+  if (action.type === DELETE_MESSAGE) {
+    const nextState = produce(state, (draftState: ChatMessages) => {
+      draftState[action.messageId].deleted = true;
 
-  //     return draftState;
-  //   });
+      return draftState;
+    });
 
-  //   return nextState;
-  // }
+    return nextState;
+  }
 
   return state;
 };

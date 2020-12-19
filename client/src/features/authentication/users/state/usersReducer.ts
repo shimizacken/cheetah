@@ -1,12 +1,10 @@
 import {AnyAction, combineReducers} from 'redux';
-import produce from 'immer';
 import {
   ADD_USER,
-  SET_USER_ACTIVE,
+  // SET_USER_ACTIVE,
   SET_CURRENT_USER_ID,
   SIGN_OUT
 } from './usersConstants';
-import type {Authentication} from '../../../../state/store.types';
 
 const usersInitialState = {};
 
