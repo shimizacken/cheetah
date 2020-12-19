@@ -4,6 +4,7 @@ import {SavannahEvents} from '../../packages/socket/savannah.types';
 import {store} from '../../state';
 import {addUser} from '../authentication';
 import {updateMembers} from '../authentication/users/state/usersActions';
+import {setMessages} from '../chat/state/chatMessagesActions';
 
 export const useSavannahSocket = () => {
   useEffect(() => {
@@ -28,7 +29,6 @@ export const useSavannahSocket = () => {
     };
 
     socket.onmessage = (e: MessageEvent) => {
-      console.log(e.data);
       const savannahEvents: SavannahEvents = JSON.parse(e.data);
 
       // dispatch message event
@@ -38,6 +38,9 @@ export const useSavannahSocket = () => {
           break;
         case 'chat-member':
           store.dispatch(addUser(savannahEvents));
+          break;
+        case 'chat-messages':
+          store.dispatch(setMessages(savannahEvents));
           break;
       }
     };

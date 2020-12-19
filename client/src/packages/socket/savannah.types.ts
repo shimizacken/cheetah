@@ -35,6 +35,7 @@ export type ChatMessages = {
 export const eventType = [
   'authentication',
   'chat-message',
+  'chat-messages',
   'handshake',
   'chat-member',
   'chat-members',
@@ -78,9 +79,9 @@ export interface ChatMessageEvent {
   message: ChatMessage;
 }
 
-export interface ChatMessagesEvent extends EventCore {
-  type: 'chat-message';
-  message: ChatMessages;
+export interface ChatMessagesEvent {
+  type: 'chat-messages';
+  messages: ChatMessages;
 }
 
 export type SavannahEvents =
@@ -88,4 +89,5 @@ export type SavannahEvents =
   | HandshakeEvent
   | ChatMemberEvent
   | ChatMembersEvent
-  | ChatMessageEvent;
+  | ChatMessageEvent
+  | ChatMessagesEvent;

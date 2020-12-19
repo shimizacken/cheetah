@@ -3,6 +3,7 @@ import type {ChatMessages, Guid, ChatMembers, ChatMessage} from './chat.types';
 export const eventType = [
   'authentication',
   'chat-message',
+  'chat-messages',
   'handshake',
   'chat-member',
   'chat-members',
