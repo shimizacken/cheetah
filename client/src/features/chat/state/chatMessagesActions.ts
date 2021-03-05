@@ -1,4 +1,7 @@
-import { ChatMessage } from '../../../state/store.types';
+import {
+  ChatMessage,
+  ChatMessages
+} from '../../../packages/socket/savannah.types';
 import {
   PUBLISH_MESSAGE,
   EDIT_MESSAGE,
@@ -11,7 +14,7 @@ export const publishMessage = (message: ChatMessage) => ({
   message
 });
 
-export const setMessages = (messages: ChatMessage) => ({
+export const setMessages = (messages: ChatMessages) => ({
   type: SET_MESSAGES,
   messages
 });

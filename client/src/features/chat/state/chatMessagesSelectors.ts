@@ -1,4 +1,4 @@
-import type { State } from '../../../state/store.types';
+import type {State} from '../../../state/store.types';
 
 export const selectMessages = (state: State) => state?.chat?.messages;
 

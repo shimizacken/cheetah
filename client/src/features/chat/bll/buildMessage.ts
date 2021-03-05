@@ -1,4 +1,4 @@
-import { ChatMessage } from '../../../state/store.types';
+import {ChatMessage} from '../../../packages/socket/savannah.types';
 
 export const buildNewMessage = (
   id: string,

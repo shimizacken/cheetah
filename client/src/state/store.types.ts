@@ -1,15 +1,8 @@
+import {ChatMessages} from '../packages/socket/savannah.types';
+
 export const themeTypes = ['light', 'dark'] as const;
 
 export type ThemeTypes = typeof themeTypes[number];
-
-export type ChatMessage = {
-  id: string;
-  text: string;
-  userRef: string;
-  date: number;
-  edited: boolean;
-  deleted: boolean;
-};
 
 export type User = {
   id: string;
@@ -18,19 +11,18 @@ export type User = {
   active: boolean;
 };
 
-export type ChatMessages = {
-  messages: { [key: string]: ChatMessage };
-};
-
 export interface Authentication {
   users: {
     [key: string]: User;
   };
   currentUserId: string;
+  authenticated: boolean;
 }
 
 export interface State {
-  readonly chat: ChatMessages;
+  readonly chat: {
+    messages: ChatMessages;
+  };
   readonly authentication: Authentication;
   readonly themeType: ThemeTypes;
 }

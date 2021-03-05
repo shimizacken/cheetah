@@ -1,5 +1,5 @@
 import produce from 'immer';
-import { AnyAction } from 'redux';
+import {AnyAction} from 'redux';
 import {
   PUBLISH_MESSAGE,
   EDIT_MESSAGE,
@@ -7,11 +7,9 @@ import {
   SET_MESSAGES
 } from './chatMessagesConstants';
 
-import type { ChatMessages } from '../../../state/store.types';
+import type {ChatMessages} from '../../../packages/socket/savannah.types';
 
-const MessagesInitialState: ChatMessages = {
-  messages: {}
-};
+const MessagesInitialState = {};
 
 export const messages = (state = MessagesInitialState, action: AnyAction) => {
   if (action.type === SET_MESSAGES) {
@@ -27,7 +25,7 @@ export const messages = (state = MessagesInitialState, action: AnyAction) => {
 
   if (action.type === EDIT_MESSAGE) {
     const nextState = produce(state, (draftState: ChatMessages) => {
-      draftState.messages[action.message.id] = action.message;
+      draftState[action.message.id] = action.message;
 
       return draftState;
     });
@@ -36,8 +34,8 @@ export const messages = (state = MessagesInitialState, action: AnyAction) => {
   }
 
   if (action.type === DELETE_MESSAGE) {
-    const nextState = produce(state, (draftState) => {
-      draftState.messages[action.messageId].deleted = true;
+    const nextState = produce(state, (draftState: ChatMessages) => {
+      draftState[action.messageId].deleted = true;
 
       return draftState;
     });
