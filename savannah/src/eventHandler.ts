@@ -9,7 +9,7 @@ export const eventHandler = (event: SavannahEvents) => {
     case 'handshake':
       return handshakeHandler();
     case 'authentication':
-      return authenticationHandler();
+      return authenticationHandler(event);
     case 'chat-member':
       return chatMembersHandler(event);
     case 'chat-message':

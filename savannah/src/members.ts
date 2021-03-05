@@ -21,12 +21,13 @@ const members: ChatMembers = {
 export const chatMembersHandler = (
   member: ChatMemberEvent
 ): ChatMembersEvent => {
+  log('chat-member', member);
   if (member.active) {
     members[member.id] = member;
     log('chat-member', `added - ${member.id}`);
   } else {
+    log('chat-member', `remove - ${member}`);
     delete members[member.id];
-    log('chat-member', `remove - ${member.id}`);
   }
 
   const allMembers: ChatMembersEvent = {

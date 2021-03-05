@@ -1,5 +1,6 @@
 import {Dispatch} from 'react';
 import type {MiddlewareAPI, AnyAction, Middleware} from 'redux';
+import {ChatMemberEvent} from '../../../../packages/socket/savannah.types';
 import {getSocket} from '../../../../packages/socket/src/socket';
 import {POST_USER, SIGN_OUT} from './usersConstants';
 import {selectUser} from './usersSelectors';
@@ -21,13 +22,13 @@ export const usersMiddleware: Middleware = ({getState}: MiddlewareAPI) => (
     const socket = getSocket();
     const user = selectUser(action.userId)(getState());
 
-    socket.send(
-      JSON.stringify({
-        type: 'authentication',
-        ...user,
-        active: false
-      })
-    );
+    const memberEvent: ChatMemberEvent = {
+      type: 'chat-member',
+      ...user,
+      active: false
+    };
+
+    socket.send(JSON.stringify(memberEvent));
   }
 
   return next(action);
