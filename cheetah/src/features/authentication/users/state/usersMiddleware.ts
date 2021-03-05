@@ -11,7 +11,7 @@ export const usersMiddleware: Middleware = ({getState}: MiddlewareAPI) => (
   if (action.type === POST_USER) {
     const socket = getSocket();
 
-    socket.send(
+    socket?.send(
       JSON.stringify({
         type: 'authentication'
       })
@@ -28,7 +28,7 @@ export const usersMiddleware: Middleware = ({getState}: MiddlewareAPI) => (
       active: false
     };
 
-    socket.send(JSON.stringify(memberEvent));
+    socket?.send(JSON.stringify(memberEvent));
   }
 
   return next(action);

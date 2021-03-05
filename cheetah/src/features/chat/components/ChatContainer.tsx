@@ -17,7 +17,7 @@ export const ChatContainer: React.FC = () => {
       messages: {}
     };
 
-    getSocket().send(JSON.stringify(getAllChatMessages));
+    getSocket()?.send(JSON.stringify(getAllChatMessages));
   }, []);
 
   return (

@@ -20,8 +20,12 @@ export const createSocket = (
 };
 
 export const getSocket = () => {
-  if (!currentSocket) {
-    throw new Error('Socket closed');
+  try {
+    if (!currentSocket) {
+      // throw new Error('Socket closed');
+    }
+    return currentSocket;
+  } catch (error) {
+    console.log('🚀 ~ ', error);
   }
-  return currentSocket;
 };

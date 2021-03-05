@@ -13,7 +13,7 @@ export const chatMessagesMiddleware: Middleware = ({getState}) => (next) => (
 ) => {
   if (action.type === PUBLISH_MESSAGE || action.type === EDIT_MESSAGE) {
     const socket = getSocket();
-    socket.send(
+    socket?.send(
       JSON.stringify({
         type: 'chat-message',
         message: action.message
@@ -33,7 +33,7 @@ export const chatMessagesMiddleware: Middleware = ({getState}) => (next) => (
       }
     };
 
-    socket.send(JSON.stringify(messageEvent));
+    socket?.send(JSON.stringify(messageEvent));
   }
 
   return next(action);
