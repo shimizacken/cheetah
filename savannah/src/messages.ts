@@ -1,10 +1,10 @@
 import {v4} from 'uuid';
-import {log} from '../../client/src/packages/logger';
+import {log} from '../../cheetah/src/packages/logger';
 import type {
   ChatMessage,
   ChatMessageEvent,
   ChatMessagesEvent
-} from '../../client/src/packages/socket/savannah.types';
+} from '../../cheetah/src/packages/socket/savannah.types';
 const {urlify, preview} = require('./linkPreview');
 
 const welcomeMessage = {

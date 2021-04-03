@@ -1,5 +1,5 @@
-import type {HandshakeEvent} from '../../client/src/packages/socket/savannah.types';
-import {log} from '../../client/src/packages/logger';
+import type {HandshakeEvent} from '../../cheetah/src/packages/socket/savannah.types';
+import {log} from '../../cheetah/src/packages/logger';
 
 export const handshakeHandler = (): HandshakeEvent => {
   log('handshake', '');

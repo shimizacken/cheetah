@@ -1,4 +1,4 @@
-import type {SavannahEvents} from '../../client/src/packages/socket/savannah.types';
+import type {SavannahEvents} from '../../cheetah/src/packages/socket/savannah.types';
 import {authenticationHandler} from './authenticationHandler';
 import {handshakeHandler} from './handshakeHandler';
 import {chatMembersHandler} from './members';
